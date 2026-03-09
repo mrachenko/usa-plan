@@ -106,15 +106,17 @@ export default function DaySection({ config }: Props) {
           </div>
         </motion.div>
 
-        <motion.p
+        <motion.div
           initial={{ opacity: 0, y: 10 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ delay: 0.1 }}
-          className="text-muted leading-relaxed text-sm md:text-base max-w-3xl"
+          className="text-muted leading-relaxed text-sm md:text-base max-w-3xl space-y-3"
         >
-          {config.description}
-        </motion.p>
+          {config.description.split('\n\n').map((paragraph, i) => (
+            <p key={i}>{paragraph}</p>
+          ))}
+        </motion.div>
       </div>
 
       {/* Photo gallery */}

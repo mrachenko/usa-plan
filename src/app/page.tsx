@@ -46,7 +46,11 @@ function RegionHeader({ label, emoji, title, color, description }: {
       <h2 className="font-display text-4xl md:text-5xl font-bold">
         {emoji} <span style={{ color }}>{title}</span>
       </h2>
-      <p className="text-muted mt-4 leading-relaxed max-w-2xl">{description}</p>
+      <div className="text-muted mt-4 leading-relaxed max-w-2xl space-y-2">
+        {description.split('\n\n').map((p, i) => (
+          <p key={i}>{p}</p>
+        ))}
+      </div>
     </motion.div>
   );
 }
@@ -121,7 +125,7 @@ export default function Home() {
           emoji="✈️"
           title="Перелёт"
           color="#c8c0b4"
-          description="Краснодар → Ереван → Стамбул → Нью-Йорк. Транзитная ночь в Ереване."
+          description={"Два перелёта, три страны, тридцать часов — и мы в Америке.\n\nНо сначала — вечер в Ереване: поющие фонтаны на площади Республики, хоровац с углей и бокал Арени. Последний ужин на территории СНГ, а в 03:00 — Turkish Airlines через Стамбул прямо в JFK."}
 
         />
         <DaySection config={day0} />
@@ -132,7 +136,7 @@ export default function Home() {
           emoji="🗽"
           title="Нью-Йорк"
           color="#e8c87a"
-          description="Четыре дня в городе, который никогда не спит. Пешком через мосты, музеи, лучшие рестораны мира и бродвейские мюзиклы."
+          description={"Город, который никогда не спит — и нам тоже не даст.\n\nЧетыре дня пешком через Brooklyn Bridge и High Line, мимо готических небоскрёбов и паровых люков. Утренний Central Park без души, Met с египетским храмом внутри, Guggenheim — спираль Райта. Лучший бейгл с лососём с 1914 года, пицца из угольной печи, паста cacio e pepe из топ-20 мира, The Dead Rabbit — бывший бар номер один на планете.\n\nBroadway, джаз в подвале Village Vanguard, неон Times Square — и бесплатный паром мимо Статуи Свободы в 300 метрах."}
 
         />
         {hotelsByRegion['new-york'] && (
@@ -152,7 +156,7 @@ export default function Home() {
           emoji="✈️"
           title="Нью-Йорк → Вегас"
           color="#c8c0b4"
-          description="Последнее утро в Нью-Йорке, перелёт через всю страну, и вечер в Лас-Вегасе с Cirque du Soleil."
+          description={"Утром — устрицы в Grand Central Terminal под звёздным потолком. Днём — пять часов над Америкой. Вечером — совершенно другая вселенная.\n\nВегас обрушивается неоном и безумием: фонтаны Bellagio на 140 метров, Cirque du Soleil «O» — сцена превращается в бассейн, акробаты прыгают с 20-метровой высоты. И Secret Pizza — лучший slice за неприметной дверью."}
 
         />
         <HotelTable hotels={hotelsByRegion['vegas'].hotels} regionColor="#e07040" />
@@ -164,7 +168,7 @@ export default function Home() {
           emoji="🏜"
           title="Нацпарки"
           color="#e07040"
-          description="Пять дней через юго-запад: Zion, Monument Valley, Grand Canyon и Route 66. На машине через пустыни, каньоны и старую Америку."
+          description={"Пять дней за рулём через Дикий Запад — тот самый, из кино.\n\nZion: идём по реке между стен высотой 300 метров, вода по пояс, небо — узкая полоска. Monument Valley: прямая дорога между скалами-бьюттами, закат из «Форреста Гампа», Млечный Путь без единого фонаря. Horseshoe Bend — земля обрывается, внизу бирюзовая подкова Колорадо. Antelope Canyon — свет превращает камень в текущее пламя.\n\nГранд-Каньон: 1600 метров глубины и 2 миллиарда лет геологии. Рассвет, закат, и ресторан 1905 года на самом краю. Route 66, городок из мультфильма Cars, и первый In-N-Out в Калифорнии."}
 
         />
         <HotelTable hotels={hotelsByRegion['zion'].hotels} regionColor="#e07040" />
@@ -186,7 +190,7 @@ export default function Home() {
           emoji="🌴"
           title="Лос-Анджелес"
           color="#64b4ff"
-          description="Три дня на западном побережье: Hollywood, Griffith Observatory, пляжи Малибу, Getty Center с Ван Гогом, Venice Beach и корейский BBQ."
+          description={"После пустынь и каньонов — океан, пальмы и совершенно другая энергия.\n\nMalibu: базальтовые скалы El Matador Beach в утреннем тумане, завтрак над волнами. Pacific Coast Highway — 45 км обрыва в океан. Getty Center — Ван Гог, Рембрандт и панорама LA до горизонта, бесплатно. Griffith Observatory — HOLLYWOOD под ногами, телескоп Цейсса 1935 года.\n\nVenice Beach, скейтеры, каналы маленькой Венеции 1905 года. Корейский BBQ в Koreatown — угольный гриль, калби, кимчи, неоновые вывески на хангыле. И спикизи за неприметной дверью на десерт."}
         />
         <HotelTable hotels={hotelsByRegion['los-angeles'].hotels} regionColor="#64b4ff" />
         <DaySection config={day11} />
@@ -201,7 +205,7 @@ export default function Home() {
           emoji="🌺"
           title="Мауи"
           color="#40c8a0"
-          description="Четыре дня на Гавайях: рассвет над облаками на вулкане Haleakala, Road to Hana с 620 поворотами, чёрный пляж, снорклинг в кратере Molokini и Mama's Fish House."
+          description={"Пять часов над Тихим океаном — и стена тёплого воздуха с ароматом плюмерии.\n\nHaleakala: подъём в 2:30 ночи, серпантин на 3056 метров, рассвет над облаками — «самое величественное зрелище на земле» (Марк Твен). Road to Hana: 620 поворотов, 59 мостов, водопады, чёрный вулканический пляж, бамбуковый лес со звуком тысячи скрипок.\n\nMolokini — снорклинг в кратере вулкана, видимость 60 метров, черепахи на расстоянии вытянутой руки. Kaanapali Beach — три километра белого песка и бирюзовой воды +26°C. Mama's Fish House — в меню имя рыбака, поймавшего вашу рыбу сегодня утром."}
         />
         <HotelTable hotels={hotelsByRegion['maui'].hotels} regionColor="#40c8a0" />
         <DaySection config={day14} />
@@ -218,7 +222,7 @@ export default function Home() {
           emoji="✈️"
           title="Возвращение"
           color="#c8c0b4"
-          description="Последнее утро на Мауи, перелёт в LA, Universal Studios и ночной рейс домой через Атлантику."
+          description={"Два последних дня — и мы уходим красиво.\n\nУтро на Мауи: тёплый песок, баньяновое дерево на весь квартал, гавайский shave ice. Перелёт в LA — и Хогвартс в натуральную величину: сливочное пиво, Forbidden Journey, Studio Tour по настоящим площадкам Спилберга.\n\nНочной Turkish Airlines через Атлантику — 19 дней Америки превращаются в самое яркое воспоминание."}
         />
         <DaySection config={day18} />
         <Divider />
