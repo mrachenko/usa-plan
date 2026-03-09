@@ -3,9 +3,14 @@ export type RouteMode = 'walking' | 'driving' | 'ferry' | 'shuttle' | 'flight' |
 export type Region = 'new-york' | 'vegas-parks' | 'los-angeles' | 'maui' | 'transit';
 
 /**
- * Every stop MUST have an `image` field pointing to a photo in /public/images/.
- * Popups are shown identically from both the schedule table and the map —
- * all stops must have consistent data including photos.
+ * RULES for stop data:
+ * 1. Every stop MUST have an `image` field pointing to a photo in /public/images/.
+ * 2. Popups are shown identically from both the schedule table and the map —
+ *    all stops must have consistent data including photos.
+ * 3. Every pair of consecutive stops MUST have a corresponding route in
+ *    DayConfig.routes specifying the transport mode (walking/driving/ferry/
+ *    shuttle/flight/subway). The schedule table shows transport between stops,
+ *    so missing routes = missing transport info.
  */
 export interface Stop {
   id: string;
