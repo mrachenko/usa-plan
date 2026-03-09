@@ -80,7 +80,8 @@ export default function DaySection({ config }: Props) {
       whileInView={{ opacity: 1 }}
       viewport={{ once: true, margin: '-100px' }}
       transition={{ duration: 0.6 }}
-      className="py-12 md:py-16"
+      className="py-12 md:py-16 scroll-mt-4"
+      style={{ scrollSnapAlign: 'start' }}
     >
       {/* Day header */}
       <div className="mb-8">

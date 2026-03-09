@@ -22,7 +22,8 @@ function RegionHeader({ label, emoji, title, color, description }: {
       initial={{ opacity: 0, y: 30 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
-      className="pt-8 pb-8"
+      className="pt-8 pb-8 scroll-mt-4"
+      style={{ scrollSnapAlign: 'start' }}
     >
       <p className="text-xs tracking-[0.3em] uppercase mb-2" style={{ color: `${color}99` }}>
         {label}
@@ -42,7 +43,7 @@ export default function Home() {
   return (
     <main className="min-h-screen">
       {/* Hero */}
-      <section className="h-screen flex flex-col items-center justify-center relative overflow-hidden">
+      <section className="h-screen flex flex-col items-center justify-center relative overflow-hidden" style={{ scrollSnapAlign: 'start' }}>
         <div
           className="absolute inset-0 bg-cover bg-center bg-no-repeat"
           style={{ backgroundImage: 'url(/usa-plan/images/hero.jpg)' }}
