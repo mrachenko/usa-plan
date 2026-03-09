@@ -2,7 +2,11 @@
 
 import { motion } from 'framer-motion';
 import DaySection from '@/components/DaySection';
+import day0 from '@/data/days/day0';
 import day1 from '@/data/days/day1';
+import day2 from '@/data/days/day2';
+import day3 from '@/data/days/day3';
+import day4 from '@/data/days/day4';
 
 export default function Home() {
   return (
@@ -58,15 +62,37 @@ export default function Home() {
 
       {/* Content */}
       <div className="max-w-4xl mx-auto px-4 md:px-8">
-        {/* Region header: New York */}
+        {/* Region header: Transit */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           className="pt-16 pb-8"
         >
+          <p className="text-xs tracking-[0.3em] uppercase text-muted-dark/60 mb-2">
+            День 0
+          </p>
+          <h2 className="font-display text-4xl md:text-5xl font-bold">
+            ✈️ <span className="text-muted">Перелёт</span>
+          </h2>
+          <p className="text-muted mt-4 leading-relaxed max-w-2xl">
+            Краснодар → Ереван → Стамбул → Нью-Йорк. Транзитная ночь в Ереване.
+          </p>
+        </motion.div>
+
+        <DaySection config={day0} />
+
+        <div className="border-t border-white/5 my-8" />
+
+        {/* Region header: New York */}
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          className="pt-8 pb-8"
+        >
           <p className="text-xs tracking-[0.3em] uppercase text-gold/60 mb-2">
-            Дни 1–5
+            Дни 1–4
           </p>
           <h2 className="font-display text-4xl md:text-5xl font-bold">
             🗽 <span className="text-gold">Нью-Йорк</span>
@@ -77,13 +103,18 @@ export default function Home() {
           </p>
         </motion.div>
 
-        {/* Day 1 */}
         <DaySection config={day1} />
+        <div className="border-t border-white/5 my-4" />
+        <DaySection config={day2} />
+        <div className="border-t border-white/5 my-4" />
+        <DaySection config={day3} />
+        <div className="border-t border-white/5 my-4" />
+        <DaySection config={day4} />
 
         {/* Separator */}
         <div className="border-t border-white/5 my-8" />
         <p className="text-center text-muted-dark text-sm">
-          Дни 2–19 · скоро
+          Дни 5–19 · скоро
         </p>
         <div className="h-32" />
       </div>
