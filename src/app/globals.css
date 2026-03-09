@@ -5,8 +5,13 @@
 @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=DM+Sans:wght@300;400;500;600&display=swap');
 
 html {
-  scroll-snap-type: y proximity;
   scroll-behavior: smooth;
+}
+
+/* Infinite scroll gallery */
+@keyframes gallery-scroll {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
 }
 
 body {

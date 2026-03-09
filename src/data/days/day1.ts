@@ -9,6 +9,7 @@ const day1: DayConfig = {
   region: 'new-york',
   description:
     'Вы прилетели. Джетлаг, 30 часов без нормального сна, и перед вами — Нью-Йорк. Первый день — без музеев, без тяжёлой программы. Только город: мост, река, паром мимо Статуи Свободы, и лучший бар мира на десерт. Маршрут пешком — от Lower East Side через Brooklyn Bridge в DUMBO, оттуда паромом на Staten Island (Статуя Свободы в 300 метрах от борта — бесплатно!), и обратно через Wall Street в The Dead Rabbit.',
+  gallery: ['gallery-d1-1.jpg', 'gallery-d1-2.jpg', 'gallery-d1-3.jpg', 'gallery-d1-4.jpg'],
   mapCenter: { lat: 40.705, lng: -74.0 },
   mapZoom: 13,
   transportSummary: '🚶 пешком + 🚇 метро + ⛴ паром + 🚕 такси',

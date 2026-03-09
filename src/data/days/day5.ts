@@ -9,6 +9,7 @@ const day5: DayConfig = {
   region: 'transit',
   description:
     'Последнее утро в Нью-Йорке — кофе у Рокфеллер-центра, устрицы на Grand Central, и в аэропорт. Пять с половиной часов полёта — и вы в другой вселенной. Лас-Вегас встречает неоном, буфетом Wicked Spoon, фонтанами Bellagio и водным шоу Cirque du Soleil «O». А на десерт — секретная пиццерия без вывески в Cosmopolitan.',
+  gallery: ['gallery-d5-1.jpg', 'gallery-d5-2.jpg', 'gallery-d5-3.jpg', 'gallery-d5-4.jpg'],
   mapCenter: { lat: 38.0, lng: -100.0 },
   mapZoom: 4,
   transportSummary: '🚶 пешком + 🚕 такси + ✈️ перелёт',

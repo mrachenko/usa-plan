@@ -31,7 +31,6 @@ function RegionHeader({ label, emoji, title, color, description, image }: {
     <div
       ref={ref}
       className="relative h-[300px] md:h-[380px] overflow-hidden -mx-4 md:-mx-8 mb-10 scroll-mt-4"
-      style={{ scrollSnapAlign: 'start' }}
     >
       <motion.div
         className="absolute inset-[-15%] bg-cover bg-center bg-no-repeat"
@@ -70,7 +69,7 @@ export default function Home() {
   return (
     <main className="min-h-screen">
       {/* Hero */}
-      <section className="h-screen flex flex-col items-center justify-center relative overflow-hidden" style={{ scrollSnapAlign: 'start' }}>
+      <section className="h-screen flex flex-col items-center justify-center relative overflow-hidden">
         <div
           className="absolute inset-0 bg-cover bg-center bg-no-repeat"
           style={{ backgroundImage: 'url(/usa-plan/images/hero.jpg)' }}

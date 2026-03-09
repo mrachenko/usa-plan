@@ -9,6 +9,7 @@ const day8: DayConfig = {
   region: 'vegas-parks',
   description:
     'Три главных чуда Аризоны за один длинный день. Утром — обрыв Horseshoe Bend, где Колорадо делает разворот на 270° в каньоне глубиной 300 метров. Потом Upper Antelope Canyon — узкая щель в песчанике, куда в полдень пробиваются столбы света. И к вечеру — Гранд-Каньон: заселение, ужин в легендарном El Tovar и первый закат на краю пропасти.',
+  gallery: ['gallery-d8-1.jpg', 'gallery-d8-2.jpg', 'gallery-d8-3.jpg'],
   mapCenter: { lat: 36.4, lng: -111.5 },
   mapZoom: 8,
   transportSummary: '🚗 на машине + 🚶 пешком',

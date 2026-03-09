@@ -50,6 +50,7 @@ export interface DayConfig {
   mapCenter: { lat: number; lng: number };
   mapZoom: number;
   transportSummary: string;
+  gallery?: string[];
   stops: Stop[];
   routes: RouteSegment[];
   infoBlocks: InfoBlock[];

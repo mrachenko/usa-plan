@@ -9,6 +9,7 @@ const day9: DayConfig = {
   region: 'vegas-parks',
   description:
     'Целый день в Гранд-Каньоне — от рассвета до заката. Утром каньон проступает из темноты слой за слоем. Потом — первый километр Bright Angel Trail вниз (и два часа обратно). Днём шаттл по Hermit Road — семь смотровых площадок, каждая с новым ракурсом. Вечером — Desert View Drive и финальный закат с Hopi Point, когда весь каньон горит оранжевым.',
+  gallery: ['gallery-d9-1.jpg', 'gallery-d9-2.jpg', 'gallery-d9-3.jpg'],
   mapCenter: { lat: 36.06, lng: -112.12 },
   mapZoom: 13,
   transportSummary: '🚶 пешком + 🚌 шаттл',

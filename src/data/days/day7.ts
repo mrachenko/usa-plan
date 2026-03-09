@@ -9,6 +9,7 @@ const day7: DayConfig = {
   region: 'vegas-parks',
   description:
     'Пять часов через территорию Навахо — красная пустыня, одинокие бьютты на горизонте, ни одного билборда. Monument Valley — те самые скалы из вестернов Джона Форда. Scenic Drive по грунтовке, тур с гидом-навахо к петроглифам, закат у The Mittens когда скалы горят оранжевым, и звёздное небо без единого фонаря.',
+  gallery: ['gallery-d7-1.jpg', 'gallery-d7-2.jpg', 'gallery-d7-3.jpg'],
   mapCenter: { lat: 37.0, lng: -111.0 },
   mapZoom: 7,
   transportSummary: '🚗 на машине + 🚶 пешком',

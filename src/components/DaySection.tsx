@@ -7,6 +7,7 @@ import ScheduleTable from './ScheduleTable';
 import DayMap from './DayMap';
 import InfoBlock from './InfoBlock';
 import StopPopup from './StopPopup';
+import PhotoGallery from './PhotoGallery';
 
 interface Props {
   config: DayConfig;
@@ -81,7 +82,6 @@ export default function DaySection({ config }: Props) {
       viewport={{ once: true, margin: '-100px' }}
       transition={{ duration: 0.6 }}
       className="py-12 md:py-16 scroll-mt-4"
-      style={{ scrollSnapAlign: 'start' }}
     >
       {/* Day header */}
       <div className="mb-8">
@@ -116,6 +116,11 @@ export default function DaySection({ config }: Props) {
           {config.description}
         </motion.p>
       </div>
+
+      {/* Photo gallery */}
+      {config.gallery && config.gallery.length > 0 && (
+        <PhotoGallery images={config.gallery} />
+      )}
 
       {/* Schedule table */}
       <div className="mb-8 bg-white/[0.02] border border-white/5 rounded-none md:rounded-xl overflow-hidden">

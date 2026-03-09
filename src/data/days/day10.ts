@@ -9,6 +9,7 @@ const day10: DayConfig = {
   region: 'vegas-parks',
   description:
     'Последний день на машине. Прощальный рассвет над Гранд-Каньоном, потом 580 км на запад — через пустыню, сосновые леса и легендарный Route 66. Остановка в Seligman — городке, который вдохновил мультфильм Cars. In-N-Out в Barstow — ваш первый калифорнийский бургер. К вечеру — Лос-Анджелес, Venice Beach и первый закат над Тихим океаном.',
+  gallery: ['gallery-d10-1.jpg', 'gallery-d10-2.jpg', 'gallery-d10-3.jpg'],
   mapCenter: { lat: 35.0, lng: -114.0 },
   mapZoom: 6,
   transportSummary: '🚗 на машине + 🚶 пешком',

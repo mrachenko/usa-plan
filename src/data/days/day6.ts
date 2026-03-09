@@ -9,6 +9,7 @@ const day6: DayConfig = {
   region: 'vegas-parks',
   description:
     'Забираете машину в Вегасе и через 2.5 часа по пустыне — вы в Zion. Красные скалы высотой 300 метров, река Virgin, узкие каньоны. Главное приключение дня — The Narrows: вы идёте по реке внутри каньона, где стены сходятся до 6 метров, а небо — узкая полоска наверху. Вечером — Canyon Overlook Trail на закате и стейк в Spotted Dog Cafe.',
+  gallery: ['gallery-d6-1.jpg', 'gallery-d6-2.jpg', 'gallery-d6-3.jpg'],
   mapCenter: { lat: 37.2, lng: -113.5 },
   mapZoom: 8,
   transportSummary: '🚗 на машине + 🚌 шаттл + 🚶 пешком',
