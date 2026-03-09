@@ -155,6 +155,7 @@ export default function Home() {
           description="Последнее утро в Нью-Йорке, перелёт через всю страну, и вечер в Лас-Вегасе с Cirque du Soleil."
 
         />
+        <HotelTable hotels={hotelsByRegion['vegas'].hotels} regionColor="#e07040" />
         <DaySection config={day5} />
 
         {/* Days 6-10 — Vegas + National Parks */}
@@ -166,19 +167,13 @@ export default function Home() {
           description="Пять дней через юго-запад: Zion, Monument Valley, Grand Canyon и Route 66. На машине через пустыни, каньоны и старую Америку."
 
         />
-        <HotelTable
-          hotels={[
-            ...hotelsByRegion['vegas'].hotels,
-            ...hotelsByRegion['zion'].hotels,
-            ...hotelsByRegion['monument-valley'].hotels,
-            ...hotelsByRegion['grand-canyon'].hotels,
-          ]}
-          regionColor="#e07040"
-        />
+        <HotelTable hotels={hotelsByRegion['zion'].hotels} regionColor="#e07040" />
         <DaySection config={day6} />
         <Divider />
+        <HotelTable hotels={hotelsByRegion['monument-valley'].hotels} regionColor="#e07040" />
         <DaySection config={day7} />
         <Divider />
+        <HotelTable hotels={hotelsByRegion['grand-canyon'].hotels} regionColor="#e07040" />
         <DaySection config={day8} />
         <Divider />
         <DaySection config={day9} />
