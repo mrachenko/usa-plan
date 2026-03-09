@@ -3,6 +3,7 @@
 import { useCallback, useEffect, useRef, useState } from 'react';
 import { APIProvider, Map, useMap, useMapsLibrary } from '@vis.gl/react-google-maps';
 import { DayConfig, STOP_COLORS, ROUTE_STYLES } from '@/lib/types';
+import { darkMapStyle } from '@/lib/map-styles';
 
 const API_KEY = process.env.NEXT_PUBLIC_GOOGLE_MAPS_KEY || 'AIzaSyD5dF40cf_hC8j4cZeuJDc24T3gDwIWbfg';
 
@@ -105,51 +106,121 @@ function MapContent({ config, onStopClick, activeStop }: Props) {
           },
           (result, status) => {
             if (status === 'OK' && result) {
-              const renderer = new google.maps.DirectionsRenderer({
-                map,
-                directions: result,
-                suppressMarkers: true,
-                polylineOptions: {
-                  strokeColor: style.color,
-                  strokeOpacity: 0.85,
-                  strokeWeight: 4,
-                },
-              });
-              renderersRef.current.push(renderer);
+              if (route.mode === 'walking') {
+                // Walking: dotted line with walk icon
+                const renderer = new google.maps.DirectionsRenderer({
+                  map,
+                  directions: result,
+                  suppressMarkers: true,
+                  polylineOptions: {
+                    strokeColor: style.color,
+                    strokeOpacity: 0,
+                    strokeWeight: 0,
+                    icons: [
+                      {
+                        icon: { path: 'M 0,-1 0,1', strokeOpacity: 0.8, strokeColor: style.color, scale: 2.5 },
+                        offset: '0',
+                        repeat: '10px',
+                      },
+                      {
+                        icon: {
+                          path: 'M -0.5,3 L -0.5,0 L 0.5,-1 L -0.3,-2.5 M -0.5,0 L -1.5,-1.5 M -0.5,0 L 0.5,-0.5',
+                          strokeOpacity: 0.9,
+                          strokeColor: style.color,
+                          strokeWeight: 1.5,
+                          scale: 3,
+                          fillOpacity: 0,
+                        },
+                        offset: '50%',
+                        repeat: '200px',
+                      },
+                    ],
+                  },
+                });
+                renderersRef.current.push(renderer);
+              } else {
+                // Driving: solid thick line
+                const renderer = new google.maps.DirectionsRenderer({
+                  map,
+                  directions: result,
+                  suppressMarkers: true,
+                  polylineOptions: {
+                    strokeColor: style.color,
+                    strokeOpacity: 0.85,
+                    strokeWeight: 4,
+                  },
+                });
+                renderersRef.current.push(renderer);
+              }
             }
           },
         );
       } else if (route.mode === 'flight') {
+        // Flight: dotted line, wide spacing
         const polyline = new google.maps.Polyline({
           path: [fromPos, toPos],
           map,
           strokeColor: style.color,
           strokeOpacity: 0,
           geodesic: true,
-          icons: [{
-            icon: { path: 'M 0,-1 0,1', strokeOpacity: 1, scale: 3 },
-            offset: '0',
-            repeat: '16px',
-          }],
+          icons: [
+            {
+              icon: { path: 'M 0,-1 0,1', strokeOpacity: 0.9, scale: 3 },
+              offset: '0',
+              repeat: '16px',
+            },
+            {
+              icon: {
+                path: 'M -2,0 L 0,-3 L 2,0 L 0,-0.5 Z',
+                fillOpacity: 0.9,
+                fillColor: style.color,
+                strokeOpacity: 0,
+                scale: 2.5,
+                rotation: 0,
+              },
+              offset: '50%',
+              repeat: '0',
+            },
+          ],
           strokeWeight: 2,
         });
         polylinesRef.current.push(polyline);
       } else {
-        // Ferry, shuttle, subway — dashed polyline
+        // Ferry, shuttle, subway — dashed line with mode-specific icons
         const path = route.waypoints
           ? [fromPos, ...route.waypoints, toPos]
           : [fromPos, toPos];
+
+        const dashRepeat = route.mode === 'ferry' ? '14px' : '10px';
+        const dashScale = route.mode === 'ferry' ? 3.5 : 3;
 
         const polyline = new google.maps.Polyline({
           path,
           map,
           strokeColor: style.color,
           strokeOpacity: 0,
-          icons: [{
-            icon: { path: 'M 0,-1 0,1', strokeOpacity: 1, scale: 3 },
-            offset: '0',
-            repeat: '12px',
-          }],
+          icons: [
+            {
+              icon: { path: 'M 0,-1 0,1', strokeOpacity: 0.9, strokeColor: style.color, scale: dashScale },
+              offset: '0',
+              repeat: dashRepeat,
+            },
+            {
+              icon: {
+                path: route.mode === 'ferry'
+                  ? 'M -3,1 C -2,-1 2,-1 3,1 L 2.5,2 L -2.5,2 Z'  // boat shape
+                  : 'M -2,0 L 2,0 L 2,-1.5 L -2,-1.5 Z',           // rectangle for subway/shuttle
+                fillOpacity: 0.9,
+                fillColor: style.color,
+                strokeColor: '#0d0d0d',
+                strokeWeight: 1,
+                strokeOpacity: 0.5,
+                scale: 2.5,
+              },
+              offset: '50%',
+              repeat: '150px',
+            },
+          ],
           strokeWeight: 3,
           geodesic: true,
         });
@@ -173,12 +244,11 @@ export default function DayMap({ config, onStopClick, activeStop }: Props) {
         <Map
           defaultCenter={config.mapCenter}
           defaultZoom={config.mapZoom}
-          mapId="dark-map"
           gestureHandling="cooperative"
           disableDefaultUI
           zoomControl
           fullscreenControl
-          styles={undefined}
+          styles={darkMapStyle}
         >
           <MapContent config={config} onStopClick={onStopClick} activeStop={activeStop} />
         </Map>

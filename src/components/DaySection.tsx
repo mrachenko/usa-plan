@@ -2,7 +2,7 @@
 
 import { useState, useCallback } from 'react';
 import { motion } from 'framer-motion';
-import { DayConfig } from '@/lib/types';
+import { DayConfig, ROUTE_STYLES, RouteMode } from '@/lib/types';
 import ScheduleTable from './ScheduleTable';
 import DayMap from './DayMap';
 import InfoBlock from './InfoBlock';
@@ -10,6 +10,42 @@ import StopPopup from './StopPopup';
 
 interface Props {
   config: DayConfig;
+}
+
+const MODE_LABELS: Record<RouteMode, string> = {
+  walking: '🚶 пешком',
+  driving: '🚗 на машине',
+  ferry: '⛴ паром',
+  shuttle: '🚌 шаттл',
+  flight: '✈️ перелёт',
+  subway: '🚇 метро',
+};
+
+function RouteLegend({ routes }: { routes: DayConfig['routes'] }) {
+  const modes = Array.from(new Set(routes.map(r => r.mode)));
+  if (modes.length <= 1) return null;
+
+  return (
+    <div className="flex flex-wrap gap-4 mt-2 px-1">
+      {modes.map(mode => (
+        <div key={mode} className="flex items-center gap-2">
+          <svg width="28" height="8" className="flex-shrink-0">
+            {ROUTE_STYLES[mode].dashed ? (
+              <line x1="0" y1="4" x2="28" y2="4"
+                stroke={ROUTE_STYLES[mode].color} strokeWidth="3"
+                strokeDasharray="5 3" strokeLinecap="round" />
+            ) : (
+              <line x1="0" y1="4" x2="28" y2="4"
+                stroke={ROUTE_STYLES[mode].color} strokeWidth="3"
+                strokeDasharray={mode === 'walking' ? '2 4' : 'none'}
+                strokeLinecap="round" />
+            )}
+          </svg>
+          <span className="text-xs text-muted-dark">{MODE_LABELS[mode]}</span>
+        </div>
+      ))}
+    </div>
+  );
 }
 
 const REGION_COLORS: Record<string, string> = {
@@ -105,6 +141,7 @@ export default function DaySection({ config }: Props) {
           onStopClick={handleStopClick}
           activeStop={activeStop}
         />
+        <RouteLegend routes={config.routes} />
       </motion.div>
 
       {/* Info blocks */}
