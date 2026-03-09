@@ -117,7 +117,12 @@ const day4: DayConfig = {
     { from: 4, to: 5, mode: 'subway' },
     { from: 5, to: 6, mode: 'walking' },
   ],
-  infoBlocks: [],
+  infoBlocks: [
+    {
+      type: 'time',
+      text: 'Завтра перелёт в Вегас — рейс днём, но утром ещё погуляете. Соберите чемоданы сегодня вечером после джаза, чтобы утром не суетиться.',
+    },
+  ],
 };
 
 export default day4;
