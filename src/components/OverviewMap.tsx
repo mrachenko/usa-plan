@@ -4,7 +4,7 @@ import { useEffect, useRef, useState } from 'react';
 import { motion } from 'framer-motion';
 import { darkMapStyle } from '@/lib/map-styles';
 
-const API_KEY = process.env.NEXT_PUBLIC_GOOGLE_MAPS_KEY || '';
+const API_KEY = process.env.NEXT_PUBLIC_GOOGLE_MAPS_KEY || 'AIzaSyD5dF40cf_hC8j4cZeuJDc24T3gDwIWbfg';
 
 interface City {
   name: string;
