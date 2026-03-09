@@ -7,6 +7,36 @@ import day1 from '@/data/days/day1';
 import day2 from '@/data/days/day2';
 import day3 from '@/data/days/day3';
 import day4 from '@/data/days/day4';
+import day5 from '@/data/days/day5';
+import day6 from '@/data/days/day6';
+import day7 from '@/data/days/day7';
+import day8 from '@/data/days/day8';
+import day9 from '@/data/days/day9';
+import day10 from '@/data/days/day10';
+
+function RegionHeader({ label, emoji, title, color, description }: {
+  label: string; emoji: string; title: string; color: string; description: string;
+}) {
+  return (
+    <motion.div
+      initial={{ opacity: 0, y: 30 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true }}
+      className="pt-8 pb-8"
+    >
+      <p className="text-xs tracking-[0.3em] uppercase mb-2" style={{ color: `${color}99` }}>
+        {label}
+      </p>
+      <h2 className="font-display text-4xl md:text-5xl font-bold">
+        {emoji} <span style={{ color }}>{title}</span>
+      </h2>
+      <p className="text-muted mt-4 leading-relaxed max-w-2xl">{description}</p>
+    </motion.div>
+  );
+}
+
+const Divider = () => <div className="border-t border-white/5 my-4" />;
+const SectionDivider = () => <div className="border-t border-white/5 my-8" />;
 
 export default function Home() {
   return (
@@ -62,59 +92,70 @@ export default function Home() {
 
       {/* Content */}
       <div className="max-w-4xl mx-auto px-4 md:px-8">
-        {/* Region header: Transit */}
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          className="pt-16 pb-8"
-        >
-          <p className="text-xs tracking-[0.3em] uppercase text-muted-dark/60 mb-2">
-            День 0
-          </p>
-          <h2 className="font-display text-4xl md:text-5xl font-bold">
-            ✈️ <span className="text-muted">Перелёт</span>
-          </h2>
-          <p className="text-muted mt-4 leading-relaxed max-w-2xl">
-            Краснодар → Ереван → Стамбул → Нью-Йорк. Транзитная ночь в Ереване.
-          </p>
-        </motion.div>
-
+        {/* Day 0 — Transit */}
+        <RegionHeader
+          label="День 0"
+          emoji="✈️"
+          title="Перелёт"
+          color="#c8c0b4"
+          description="Краснодар → Ереван → Стамбул → Нью-Йорк. Транзитная ночь в Ереване."
+        />
         <DaySection config={day0} />
 
-        <div className="border-t border-white/5 my-8" />
+        <SectionDivider />
 
-        {/* Region header: New York */}
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          className="pt-8 pb-8"
-        >
-          <p className="text-xs tracking-[0.3em] uppercase text-gold/60 mb-2">
-            Дни 1–4
-          </p>
-          <h2 className="font-display text-4xl md:text-5xl font-bold">
-            🗽 <span className="text-gold">Нью-Йорк</span>
-          </h2>
-          <p className="text-muted mt-4 leading-relaxed max-w-2xl">
-            Четыре дня в городе, который никогда не спит. Пешком через мосты, музеи,
-            лучшие рестораны мира и бродвейские мюзиклы.
-          </p>
-        </motion.div>
-
+        {/* Days 1-4 — New York */}
+        <RegionHeader
+          label="Дни 1–4"
+          emoji="🗽"
+          title="Нью-Йорк"
+          color="#e8c87a"
+          description="Четыре дня в городе, который никогда не спит. Пешком через мосты, музеи, лучшие рестораны мира и бродвейские мюзиклы."
+        />
         <DaySection config={day1} />
-        <div className="border-t border-white/5 my-4" />
+        <Divider />
         <DaySection config={day2} />
-        <div className="border-t border-white/5 my-4" />
+        <Divider />
         <DaySection config={day3} />
-        <div className="border-t border-white/5 my-4" />
+        <Divider />
         <DaySection config={day4} />
 
+        <SectionDivider />
+
+        {/* Day 5 — Transit NY → Vegas */}
+        <RegionHeader
+          label="День 5"
+          emoji="✈️"
+          title="Нью-Йорк → Вегас"
+          color="#c8c0b4"
+          description="Последнее утро в Нью-Йорке, перелёт через всю страну, и вечер в Лас-Вегасе с Cirque du Soleil."
+        />
+        <DaySection config={day5} />
+
+        <SectionDivider />
+
+        {/* Days 6-10 — Vegas + National Parks */}
+        <RegionHeader
+          label="Дни 6–10"
+          emoji="🏜"
+          title="Нацпарки"
+          color="#e07040"
+          description="Пять дней через юго-запад: Zion, Monument Valley, Grand Canyon и Route 66. На машине через пустыни, каньоны и старую Америку."
+        />
+        <DaySection config={day6} />
+        <Divider />
+        <DaySection config={day7} />
+        <Divider />
+        <DaySection config={day8} />
+        <Divider />
+        <DaySection config={day9} />
+        <Divider />
+        <DaySection config={day10} />
+
         {/* Separator */}
-        <div className="border-t border-white/5 my-8" />
+        <SectionDivider />
         <p className="text-center text-muted-dark text-sm">
-          Дни 5–19 · скоро
+          Дни 11–19 · скоро
         </p>
         <div className="h-32" />
       </div>
