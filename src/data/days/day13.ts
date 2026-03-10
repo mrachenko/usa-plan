@@ -78,7 +78,7 @@ const day13: DayConfig = {
       tip: 'Бронируйте заранее. Садитесь на патио с бугенвиллией. Берите share plates — так попробуете больше.',
       rating: '⭐4.1 (261)',
       image: 'paloma-venice.jpg',
-      price: '$40–60',
+      price: '$130–170',
       pos: { lat: 33.9920, lng: -118.4700 },
     },
     {

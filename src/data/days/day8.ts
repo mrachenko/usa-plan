@@ -51,7 +51,7 @@ const day8: DayConfig = {
       tip: 'Берите Cowboy Breakfast — яйца, бекон, оладьи, кофе без дна. Порции огромные, одной хватит на двоих.',
       rating: '⭐4.4 (1 200)',
       image: 'ranch-house-grille.jpg',
-      price: '$12–18',
+      price: '$35–45',
       pos: { lat: 36.9147, lng: -111.4558 },
     },
     {
@@ -78,7 +78,7 @@ const day8: DayConfig = {
       tip: 'Попробуйте carne asada burrito или fish tacos. Порции большие — можно брать одну на двоих. Маргарита тут отличная.',
       rating: '⭐4.4',
       image: 'el-tapatio.jpg',
-      price: '$14–22',
+      price: '$55–70',
       pos: { lat: 36.91, lng: -111.46 },
     },
     {
@@ -87,7 +87,7 @@ const day8: DayConfig = {
       num: '🛣️',
       title: 'Выезд → Grand Canyon',
       time: '13:00',
-      desc: 'US-89 South → AZ-64 West, ~200 км, 2.5 часа.',
+      desc: 'US-89 South → AZ-64 West, ~260 км, 3 часа.',
       why: 'Дорога через пустынное плато навахо. Пейзажи меняются от красной пустыни к сосновому лесу. Последние 30 км — лес на высоте 2 100 м.',
       tip: 'Заправьтесь в Page — на трассе заправок мало. Кондиционер на максимум, вода в машине. Остановка на Cameron Trading Post (на полпути) — красивый мост.',
       image: 'arizona-highway.jpg',
@@ -131,7 +131,7 @@ const day8: DayConfig = {
       tip: 'Бронируйте столик заранее через xanterra.com — без брони можно ждать 1–2 часа. Попросите столик у окна. Elk steak — фирменное блюдо.',
       rating: '⭐4.2 (2 850)',
       image: 'el-tovar.jpg',
-      price: '$45–65',
+      price: '$120–160',
       pos: { lat: 36.0544, lng: -112.1401 },
     },
     {
@@ -167,6 +167,10 @@ const day8: DayConfig = {
     {
       type: 'warning',
       text: 'Horseshoe Bend: воды 1 литр, кепка, кроссовки. На плато нет ни дерева ни тени.',
+    },
+    {
+      type: 'warning',
+      text: 'Июль — сезон муссонов. Flash floods в слот-каньонах смертельно опасны. Следите за прогнозом: weather.gov. Тур отменят при угрозе — не спорьте, это спасает жизни.',
     },
     {
       type: 'tip',

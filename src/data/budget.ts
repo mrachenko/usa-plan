@@ -8,8 +8,8 @@ export interface BudgetItem {
 export const budgetItems: BudgetItem[] = [
   {
     category: 'Авиабилеты',
-    amount: 3500,
-    note: 'KRR→EVN→JFK, JFK→LAS, LAX↔OGG, LAX→IST→KRR — на двоих',
+    amount: 3200,
+    note: 'EVN→JFK + LAX→EVN (141 т₽) + KRR↔EVN (~61 т₽) + JFK→LAS + LAX↔OGG (~$700) — на двоих',
   },
   {
     category: 'Отели (20 ночей)',
@@ -23,13 +23,13 @@ export const budgetItems: BudgetItem[] = [
   },
   {
     category: 'Еда и рестораны',
-    amount: 2200,
-    note: '~$110/день на двоих, от завтраков до ресторанов',
+    amount: 5000,
+    note: '~$250/день на двоих с напитками, tax и tip',
   },
   {
     category: 'Развлечения и билеты',
-    amount: 2100,
-    note: 'Universal, Cirque, Lion King, Molokini, Antelope Canyon, парки',
+    amount: 2400,
+    note: 'Universal, Cirque, Lion King, Molokini, Antelope Canyon, парки + Non-Resident Annual Pass $250',
   },
   {
     category: 'Транспорт в городах',
@@ -40,7 +40,7 @@ export const budgetItems: BudgetItem[] = [
 
 export const budgetTotal: BudgetItem = {
   category: 'Итого',
-  amount: 14500,
+  amount: 17300,
   note: '',
   isTotal: true,
 };
