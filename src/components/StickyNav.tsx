@@ -5,6 +5,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 
 interface DayInfo {
   dayNumber: number;
+  date: string;
   title: string;
   region: string;
 }
@@ -136,12 +137,12 @@ export default function StickyNav({ days }: Props) {
 
               {/* Day dots (desktop) */}
               <div className="hidden md:flex items-center gap-1 flex-1 justify-center">
-                {days.map(day => (
+                {days.map((day, i) => (
                   <button
                     key={day.dayNumber}
                     onClick={() => scrollToDay(day.dayNumber)}
                     className="group relative p-0.5"
-                    title={`День ${day.dayNumber} — ${day.title}`}
+                    title={`День ${day.dayNumber} · ${day.date} — ${day.title}`}
                   >
                     <div
                       className="w-2 h-2 rounded-full transition-all duration-200"
@@ -153,8 +154,12 @@ export default function StickyNav({ days }: Props) {
                       }}
                     />
                     {/* Tooltip */}
-                    <div className="absolute bottom-full left-1/2 -translate-x-1/2 mb-2 px-2 py-1 bg-surface border border-white/10 rounded text-[10px] text-muted whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none">
-                      День {day.dayNumber}
+                    <div
+                      className={`absolute bottom-full mb-2 px-2 py-1 bg-surface border border-white/10 rounded text-[10px] text-muted whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none ${
+                        i <= 2 ? 'left-0' : i >= days.length - 3 ? 'right-0' : 'left-1/2 -translate-x-1/2'
+                      }`}
+                    >
+                      День {day.dayNumber} · {day.date}
                     </div>
                   </button>
                 ))}

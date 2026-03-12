@@ -62,7 +62,7 @@ export default function Home() {
   return (
     <main className="min-h-screen">
       <StickyNav
-        days={ALL_DAYS.map(d => ({ dayNumber: d.dayNumber, title: d.title, region: d.region }))}
+        days={ALL_DAYS.map(d => ({ dayNumber: d.dayNumber, date: d.date, title: d.title, region: d.region }))}
       />
 
       {/* Hero */}
