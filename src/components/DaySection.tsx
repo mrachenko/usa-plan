@@ -4,7 +4,7 @@ import { useState, useCallback } from 'react';
 import { motion } from 'framer-motion';
 import { DayConfig, ROUTE_STYLES, RouteMode } from '@/lib/types';
 import ScheduleTable from './ScheduleTable';
-import DayMap from './DayMap';
+import LazyMap from './LazyMap';
 import InfoBlock from './InfoBlock';
 import StopPopup from './StopPopup';
 import PhotoGallery from './PhotoGallery';
@@ -146,7 +146,7 @@ export default function DaySection({ config }: Props) {
           <span className="text-xs text-muted-dark">·</span>
           <span className="text-xs text-muted-dark">{config.transportSummary}</span>
         </div>
-        <DayMap
+        <LazyMap
           config={config}
           onStopClick={handleStopClick}
           activeStop={activeStop}
