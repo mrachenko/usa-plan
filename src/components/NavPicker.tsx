@@ -24,7 +24,7 @@ const NAVS = [
     icon: '🧭',
     url: (lat: number, lng: number, title?: string) => {
       const dest = title ? encodeURIComponent(title) : `${lat},${lng}`;
-      return `https://www.google.com/maps/dir/?api=1&destination=${dest}`;
+      return `https://www.google.com/maps/dir/?api=1&destination=${dest}&destination_place_id=&waypoints=&origin=&center=${lat},${lng}`;
     },
   },
   {
