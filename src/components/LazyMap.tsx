@@ -2,7 +2,7 @@
 
 import { useState } from 'react';
 import dynamic from 'next/dynamic';
-import { DayConfig } from '@/lib/types';
+import { DayConfig, STOP_COLORS } from '@/lib/types';
 
 const DayMap = dynamic(() => import('./DayMap'), { ssr: false });
 
@@ -12,6 +12,16 @@ interface Props {
   activeStop?: number | null;
 }
 
+const STOP_EMOJI: Record<string, string> = {
+  gold: '⭐',
+  food: '🍽️',
+  hotel: '🏨',
+  ferry: '⛴️',
+  flight: '✈️',
+  nature: '🌿',
+  drive: '🚗',
+};
+
 export default function LazyMap({ config, onStopClick, activeStop }: Props) {
   const [showMap, setShowMap] = useState(false);
 
@@ -20,13 +30,50 @@ export default function LazyMap({ config, onStopClick, activeStop }: Props) {
   }
 
   return (
-    <button
-      onClick={() => setShowMap(true)}
-      className="w-full h-[400px] md:h-[500px] rounded-none md:rounded-xl overflow-hidden border-y md:border border-white/10 bg-surface flex flex-col items-center justify-center gap-3 cursor-pointer hover:border-gold/30 transition-colors"
-    >
-      <span className="text-3xl">🗺️</span>
-      <span className="text-sm text-muted">Загрузить карту</span>
-      <span className="text-xs text-muted-dark">{config.stops.length} точек · {config.transportSummary}</span>
-    </button>
+    <div className="w-full rounded-none md:rounded-xl overflow-hidden border-y md:border border-white/10 bg-surface">
+      {/* Stop list — works offline */}
+      <div className="divide-y divide-white/5">
+        {config.stops.map((stop, i) => (
+          <div
+            key={stop.id}
+            className="flex items-center gap-3 px-4 py-3 hover:bg-white/5 transition-colors"
+          >
+            <span
+              className="w-7 h-7 rounded-full flex items-center justify-center text-xs font-bold shrink-0"
+              style={{ backgroundColor: STOP_COLORS[stop.type], color: '#0d0d0d' }}
+            >
+              {stop.num.length <= 2 ? stop.num : '★'}
+            </span>
+
+            <button
+              onClick={() => onStopClick?.(i)}
+              className="flex-1 text-left min-w-0"
+            >
+              <div className="text-sm text-text truncate">{stop.title}</div>
+              <div className="text-xs text-muted-dark">{stop.time}</div>
+            </button>
+
+            <a
+              href={`https://www.google.com/maps/dir/?api=1&destination=${stop.pos.lat},${stop.pos.lng}`}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="shrink-0 w-9 h-9 rounded-lg bg-white/5 flex items-center justify-center text-base hover:bg-gold/20 transition-colors"
+              title="Навигация"
+            >
+              📍
+            </a>
+          </div>
+        ))}
+      </div>
+
+      {/* Load interactive map — needs internet */}
+      <button
+        onClick={() => setShowMap(true)}
+        className="w-full px-4 py-3 flex items-center justify-center gap-2 text-xs text-muted-dark hover:text-gold transition-colors border-t border-white/5"
+      >
+        <span>🗺️</span>
+        <span>Открыть интерактивную карту</span>
+      </button>
+    </div>
   );
 }
