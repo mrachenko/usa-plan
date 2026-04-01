@@ -71,13 +71,13 @@ export default function Home() {
           className="absolute inset-0 bg-cover bg-center bg-no-repeat"
           style={{ backgroundImage: 'url(/usa-plan/images/hero.webp)' }}
         />
-        <div className="absolute inset-0 bg-gradient-to-b from-bg/70 via-bg/50 to-bg" />
-        <div className="relative z-10 text-center px-6">
+        <div className="absolute inset-0 bg-gradient-to-b from-black/50 via-black/30 to-bg" />
+        <div className="relative z-10 text-center px-6" style={{ textShadow: '0 2px 12px rgba(0,0,0,0.5)' }}>
           <motion.p
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.2 }}
-            className="text-xs tracking-[0.3em] uppercase text-text/60 mb-4"
+            className="text-xs tracking-[0.3em] uppercase text-white/80 mb-4"
           >
             10 – 31 июля 2026
           </motion.p>
@@ -85,7 +85,7 @@ export default function Home() {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.4 }}
-            className="font-display text-5xl md:text-7xl font-bold mb-6 text-text"
+            className="font-display text-5xl md:text-7xl font-bold mb-6 text-white"
           >
             США <span className="text-gold">2026</span>
           </motion.h1>
@@ -93,7 +93,7 @@ export default function Home() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.6 }}
-            className="text-text/70 text-lg md:text-xl tracking-wide"
+            className="text-white/80 text-lg md:text-xl tracking-wide"
           >
             21 день · 7 городов · 2 океана
           </motion.p>
