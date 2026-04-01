@@ -58,6 +58,14 @@ const REGION_COLORS: Record<string, string> = {
   'transit': '#c8c0b4',
 };
 
+const TIMEZONE_INFO: Record<string, { zone: string; utc: string; msk: string }> = {
+  'new-york':   { zone: 'EST (UTC−4)', utc: '-4', msk: 'МСК −7ч' },
+  'vegas-parks': { zone: 'PST (UTC−7)', utc: '-7', msk: 'МСК −10ч' },
+  'los-angeles': { zone: 'PST (UTC−7)', utc: '-7', msk: 'МСК −10ч' },
+  'maui':        { zone: 'HST (UTC−10)', utc: '-10', msk: 'МСК −13ч' },
+  'transit':     { zone: '', utc: '', msk: '' },
+};
+
 export default function DaySection({ config }: Props) {
   const [activeStop, setActiveStop] = useState<number | null>(null);
   const [popupStop, setPopupStop] = useState<number | null>(null);
@@ -117,6 +125,9 @@ export default function DaySection({ config }: Props) {
           <span>{config.stops[0]?.time} — {config.stops[config.stops.length - 1]?.time}</span>
           <span>{config.stops.length} точек</span>
           <span>{config.transportSummary}</span>
+          {TIMEZONE_INFO[config.region]?.zone && (
+            <span>🕐 {TIMEZONE_INFO[config.region].msk}</span>
+          )}
           {config.stops.find(s => s.type === 'hotel') && (
             <span>🏨 {config.stops.find(s => s.type === 'hotel')?.title}</span>
           )}
