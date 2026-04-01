@@ -1,4 +1,4 @@
-const CACHE_NAME = 'usa-plan-v4';
+const CACHE_NAME = 'usa-plan-v5';
 
 // Pre-cache critical shell on install
 self.addEventListener('install', (event) => {

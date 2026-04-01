@@ -72,7 +72,7 @@ export default function Home() {
           style={{ backgroundImage: 'url(/usa-plan/images/hero.webp)' }}
         />
         <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-black/20 to-bg" />
-        <div className="relative z-10 text-center px-6" style={{ textShadow: '0 2px 16px rgba(0,0,0,0.7)' }}>
+        <div className="relative z-10 text-center px-6" data-hero style={{ textShadow: '0 2px 16px rgba(0,0,0,0.7)' }}>
           <motion.p
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}

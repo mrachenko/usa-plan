@@ -108,11 +108,13 @@ html.light .bg-white\/5 { background-color: rgba(0,0,0,0.04); }
 html.light .bg-white\/8 { background-color: rgba(0,0,0,0.06); }
 html.light .bg-white\/10 { background-color: rgba(0,0,0,0.08); }
 html.light .bg-white\/15 { background-color: rgba(0,0,0,0.1); }
-html.light .text-white { color: #1a1a1a; }
-html.light .text-white\/80 { color: rgba(26,26,26,0.8); }
+html.light :not([data-hero]) > .text-white { color: #1a1a1a; }
+html.light :not([data-hero]) > .text-white\/80 { color: rgba(26,26,26,0.8); }
+html.light [data-hero] .text-white { color: #ffffff !important; }
+html.light [data-hero] .text-white\/80 { color: rgba(255,255,255,0.8) !important; }
 html.light .bg-bg\/90 { background-color: rgba(245,243,239,0.9); }
 html.light .bg-bg\/95 { background-color: rgba(245,243,239,0.95); }
-html.light .hover\:text-white:hover { color: #1a1a1a; }
+html.light :not([data-hero]) .hover\:text-white:hover { color: #1a1a1a; }
 html.light .hover\:bg-white\/5:hover { background-color: rgba(0,0,0,0.04); }
 html.light .hover\:bg-white\/15:hover { background-color: rgba(0,0,0,0.1); }
 
