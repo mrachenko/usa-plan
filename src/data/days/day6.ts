@@ -65,6 +65,7 @@ const day6: DayConfig = {
       tip: 'Берите столик на террасе — вид на Watchman и скалы. Fish tacos или Southwest burger — хиты меню. Порции огромные — можно одну на двоих. Закажите лимонад — жара.',
       rating: '⭐4.4 (3 380)',
       image: 'oscars-cafe.webp',
+      phone: '+1-435-772-3232',
       price: '$50–65',
       pos: { lat: 37.1896, lng: -112.9987 },
     },

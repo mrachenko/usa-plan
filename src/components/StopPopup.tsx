@@ -100,7 +100,7 @@ function StopCard({ stop, onClose }: { stop: Stop; onClose: () => void }) {
         </div>
 
         {/* Quick actions */}
-        <div className="mt-4 grid grid-cols-2 gap-2">
+        <div className={`mt-4 grid gap-2 ${stop.phone ? 'grid-cols-3' : 'grid-cols-2'}`}>
           <NavPicker
             lat={stop.pos.lat}
             lng={stop.pos.lng}
@@ -109,6 +109,15 @@ function StopCard({ stop, onClose }: { stop: Stop; onClose: () => void }) {
             <span>🧭</span>
             <span>Маршрут</span>
           </NavPicker>
+          {stop.phone && (
+            <a
+              href={`tel:${stop.phone}`}
+              className="flex items-center justify-center gap-2 py-2.5 text-xs font-medium text-white bg-white/10 border border-white/10 rounded-lg hover:bg-white/15 transition-colors"
+            >
+              <span>📞</span>
+              <span>Звонок</span>
+            </a>
+          )}
           <button
             onClick={() => navigator.clipboard?.writeText(`${stop.title}: ${stop.pos.lat},${stop.pos.lng}`)}
             className="flex items-center justify-center gap-2 py-2.5 text-xs font-medium text-white bg-white/10 border border-white/10 rounded-lg hover:bg-white/15 transition-colors"

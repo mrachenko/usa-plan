@@ -130,6 +130,7 @@ const day14: DayConfig = {
       tip: 'Бронь за 1-2 месяца обязательна — oldlahainaluau.com. Места «traditional» (на подушках) ближе к сцене. Шоу 3 часа: 17:30–20:30. Приходите голодными — еда обильная.',
       rating: '⭐4.8 (6 000)',
       image: 'hula-grill.webp',
+      phone: '+1-808-667-1998',
       price: '$280',
       pos: { lat: 20.8725, lng: -156.6790 },
     },

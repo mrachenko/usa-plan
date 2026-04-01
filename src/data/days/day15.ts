@@ -132,6 +132,7 @@ const day15: DayConfig = {
       tip: 'Бронь за 2–3 месяца обязательна. Столик у окна (ocean view) — просите при бронировании. Stuffed mahi-mahi + Polynesian Black Pearl dessert. Дресс-код — smart casual.',
       rating: '⭐4.7 (11 140)',
       image: 'mamas-fish-house.webp',
+      phone: '+1-808-579-8488',
       price: '$300–400',
       pos: { lat: 20.9296, lng: -156.3520 },
     },

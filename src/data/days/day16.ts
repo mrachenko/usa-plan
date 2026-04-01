@@ -134,6 +134,7 @@ const day16: DayConfig = {
       tip: 'Garlic noodles + Ahi avo — must order. Порции средние — берите 2–3 блюда на двоих. Бронь не нужна, но очередь 20–30 мин в пятницу-субботу. В воскресенье спокойнее.',
       rating: '⭐4.5 (4 200)',
       image: 'star-noodle.webp',
+      phone: '+1-808-667-5400',
       price: '$120–160',
       pos: { lat: 20.8726, lng: -156.6780 },
     },

@@ -103,17 +103,28 @@ function HotelPopupContent({ hotel, regionColor, onClose }: { hotel: Hotel; regi
           </div>
         </div>
 
-        {hotel.url && (
-          <a
-            href={hotel.url}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="mt-4 flex items-center justify-center gap-2 w-full py-2.5 text-xs font-medium text-white bg-white/10 border border-white/10 rounded-lg hover:bg-white/15 transition-colors"
-          >
-            <span>🔗</span>
-            <span>Забронировать</span>
-          </a>
-        )}
+        <div className="mt-4 flex gap-2">
+          {hotel.phone && (
+            <a
+              href={`tel:${hotel.phone}`}
+              className="flex-1 flex items-center justify-center gap-2 py-2.5 text-xs font-medium text-white bg-white/10 border border-white/10 rounded-lg hover:bg-white/15 transition-colors"
+            >
+              <span>📞</span>
+              <span>Позвонить</span>
+            </a>
+          )}
+          {hotel.url && (
+            <a
+              href={hotel.url}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex-1 flex items-center justify-center gap-2 py-2.5 text-xs font-medium text-white bg-white/10 border border-white/10 rounded-lg hover:bg-white/15 transition-colors"
+            >
+              <span>🔗</span>
+              <span>Забронировать</span>
+            </a>
+          )}
+        </div>
       </div>
     </>
   );

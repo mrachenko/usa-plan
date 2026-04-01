@@ -24,6 +24,7 @@ export interface Stop {
   rating?: string;
   image: string;
   price: string;
+  phone?: string;
   pos: { lat: number; lng: number };
 }
 
