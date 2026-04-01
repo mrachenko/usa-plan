@@ -4,6 +4,7 @@ import { useState, useCallback } from 'react';
 import { motion } from 'framer-motion';
 import { DayConfig, ROUTE_STYLES, RouteMode } from '@/lib/types';
 import ScheduleTable from './ScheduleTable';
+import ScheduleTimeline from './ScheduleTimeline';
 import LazyMap from './LazyMap';
 import InfoBlock from './InfoBlock';
 import StopPopup from './StopPopup';
@@ -157,14 +158,24 @@ export default function DaySection({ config }: Props) {
         </div>
       )}
 
-      {/* Schedule table */}
+      {/* Schedule: timeline on mobile, table on desktop */}
       <div className="mb-8 bg-white/[0.02] border border-white/5 rounded-none md:rounded-xl overflow-hidden">
-        <ScheduleTable
-          stops={config.stops}
-          routes={config.routes}
-          onStopClick={handleStopClick}
-          activeStop={activeStop}
-        />
+        <div className="md:hidden">
+          <ScheduleTimeline
+            stops={config.stops}
+            routes={config.routes}
+            onStopClick={handleStopClick}
+            activeStop={activeStop}
+          />
+        </div>
+        <div className="hidden md:block">
+          <ScheduleTable
+            stops={config.stops}
+            routes={config.routes}
+            onStopClick={handleStopClick}
+            activeStop={activeStop}
+          />
+        </div>
       </div>
 
       {/* Interactive map */}
