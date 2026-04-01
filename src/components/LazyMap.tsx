@@ -67,6 +67,7 @@ export default function LazyMap({ config, onStopClick, activeStop }: Props) {
             <NavPicker
               lat={stop.pos.lat}
               lng={stop.pos.lng}
+              title={stop.title}
               className="shrink-0 w-9 h-9 rounded-lg bg-white/5 flex items-center justify-center text-base hover:bg-gold/20 transition-colors"
             />
           </div>

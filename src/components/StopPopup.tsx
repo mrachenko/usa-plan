@@ -104,6 +104,7 @@ function StopCard({ stop, onClose }: { stop: Stop; onClose: () => void }) {
           <NavPicker
             lat={stop.pos.lat}
             lng={stop.pos.lng}
+            title={stop.title}
             className="flex items-center justify-center gap-2 py-2.5 text-xs font-medium text-white bg-white/10 border border-white/10 rounded-lg hover:bg-white/15 transition-colors w-full"
           >
             <span>🧭</span>
