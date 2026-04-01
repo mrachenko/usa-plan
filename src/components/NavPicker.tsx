@@ -1,6 +1,7 @@
 'use client';
 
 import { useState, useRef, useEffect } from 'react';
+import { createPortal } from 'react-dom';
 
 interface Props {
   lat: number;
@@ -24,7 +25,7 @@ const NAVS = [
     icon: '🧭',
     url: (lat: number, lng: number, title?: string) => {
       const dest = title ? encodeURIComponent(title) : `${lat},${lng}`;
-      return `https://www.google.com/maps/dir/?api=1&destination=${dest}&destination_place_id=&waypoints=&origin=&center=${lat},${lng}`;
+      return `https://www.google.com/maps/dir/?api=1&destination=${dest}&center=${lat},${lng}`;
     },
   },
   {
@@ -51,28 +52,52 @@ const NAVS = [
 
 export default function NavPicker({ lat, lng, title, className, children }: Props) {
   const [open, setOpen] = useState(false);
-  const ref = useRef<HTMLDivElement>(null);
+  const btnRef = useRef<HTMLButtonElement>(null);
+  const menuRef = useRef<HTMLDivElement>(null);
+  const [pos, setPos] = useState({ top: 0, right: 0 });
 
   useEffect(() => {
     if (!open) return;
     const close = (e: MouseEvent) => {
-      if (ref.current && !ref.current.contains(e.target as Node)) setOpen(false);
+      if (menuRef.current && !menuRef.current.contains(e.target as Node) &&
+          btnRef.current && !btnRef.current.contains(e.target as Node)) {
+        setOpen(false);
+      }
     };
     document.addEventListener('click', close);
     return () => document.removeEventListener('click', close);
   }, [open]);
 
+  const handleOpen = (e: React.MouseEvent) => {
+    e.preventDefault();
+    e.stopPropagation();
+    if (btnRef.current) {
+      const rect = btnRef.current.getBoundingClientRect();
+      setPos({
+        top: rect.top - 8,
+        right: window.innerWidth - rect.right,
+      });
+    }
+    setOpen(!open);
+  };
+
   return (
-    <div ref={ref} className="relative">
-      <button
-        onClick={(e) => { e.preventDefault(); e.stopPropagation(); setOpen(!open); }}
-        className={className}
-      >
+    <>
+      <button ref={btnRef} onClick={handleOpen} className={className}>
         {children || '📍'}
       </button>
 
-      {open && (
-        <div className="absolute bottom-full mb-2 right-0 bg-surface border border-white/10 rounded-xl shadow-2xl overflow-hidden z-[10000] min-w-[200px]">
+      {open && createPortal(
+        <div
+          ref={menuRef}
+          className="fixed bg-surface border border-white/10 rounded-xl shadow-2xl overflow-hidden min-w-[200px]"
+          style={{
+            top: pos.top,
+            right: pos.right,
+            transform: 'translateY(-100%)',
+            zIndex: 10001,
+          }}
+        >
           {NAVS.map((nav) => (
             <a
               key={nav.name}
@@ -86,8 +111,9 @@ export default function NavPicker({ lat, lng, title, className, children }: Prop
               <span>{nav.name}</span>
             </a>
           ))}
-        </div>
+        </div>,
+        document.body
       )}
-    </div>
+    </>
   );
 }
