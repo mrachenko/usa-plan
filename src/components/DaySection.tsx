@@ -8,6 +8,7 @@ import LazyMap from './LazyMap';
 import InfoBlock from './InfoBlock';
 import StopPopup from './StopPopup';
 import PhotoGallery from './PhotoGallery';
+import { sunData } from '@/data/sun';
 
 interface Props {
   config: DayConfig;
@@ -127,6 +128,9 @@ export default function DaySection({ config }: Props) {
           <span>{config.transportSummary}</span>
           {TIMEZONE_INFO[config.region]?.zone && (
             <span>🕐 {TIMEZONE_INFO[config.region].msk}</span>
+          )}
+          {sunData[config.dayNumber] && (
+            <span>☀️ {sunData[config.dayNumber].sunrise} → 🌅 {sunData[config.dayNumber].sunset}</span>
           )}
           {config.stops.find(s => s.type === 'hotel') && (
             <span>🏨 {config.stops.find(s => s.type === 'hotel')?.title}</span>
