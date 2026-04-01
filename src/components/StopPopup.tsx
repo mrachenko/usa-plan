@@ -102,16 +102,25 @@ function StopCard({ stop, onClose }: { stop: Stop; onClose: () => void }) {
           )}
         </div>
 
-        {/* Google Maps link */}
-        <a
-          href={mapsUrl(stop)}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="mt-4 flex items-center justify-center gap-2 w-full py-2.5 text-xs font-medium text-white bg-white/10 border border-white/10 rounded-lg hover:bg-white/15 transition-colors"
-        >
-          <span>📍</span>
-          <span>Открыть в Google Maps</span>
-        </a>
+        {/* Quick actions */}
+        <div className="mt-4 grid grid-cols-2 gap-2">
+          <a
+            href={`https://www.google.com/maps/dir/?api=1&destination=${stop.pos.lat},${stop.pos.lng}`}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="flex items-center justify-center gap-2 py-2.5 text-xs font-medium text-white bg-white/10 border border-white/10 rounded-lg hover:bg-white/15 transition-colors"
+          >
+            <span>🧭</span>
+            <span>Маршрут</span>
+          </a>
+          <button
+            onClick={() => navigator.clipboard?.writeText(`${stop.title}: ${stop.pos.lat},${stop.pos.lng}`)}
+            className="flex items-center justify-center gap-2 py-2.5 text-xs font-medium text-white bg-white/10 border border-white/10 rounded-lg hover:bg-white/15 transition-colors"
+          >
+            <span>📋</span>
+            <span>Скопировать</span>
+          </button>
+        </div>
       </div>
     </>
   );

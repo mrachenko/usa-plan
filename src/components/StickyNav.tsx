@@ -30,11 +30,22 @@ const REGION_LABELS: Record<string, string> = {
   'transit': 'Транзит',
 };
 
+// Trip starts July 10, 2026 — dayNumber 0
+const TRIP_START = new Date(2026, 6, 10); // month is 0-indexed
+
+function getTodayDayNumber(): number | null {
+  const now = new Date();
+  const diff = Math.floor((now.getTime() - TRIP_START.getTime()) / 86400000);
+  if (diff < 0 || diff > 19) return null;
+  return diff;
+}
+
 export default function StickyNav({ days }: Props) {
   const [visible, setVisible] = useState(false);
   const [activeDay, setActiveDay] = useState(-1);
   const [expanded, setExpanded] = useState(false);
   const navRef = useRef<HTMLDivElement>(null);
+  const todayDay = getTodayDayNumber();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -165,13 +176,23 @@ export default function StickyNav({ days }: Props) {
                 ))}
               </div>
 
-              {/* Scroll to top */}
-              <button
-                onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
-                className="text-muted-dark hover:text-white text-xs transition-colors ml-auto md:ml-4"
-              >
-                ↑ Наверх
-              </button>
+              {/* Today + Scroll to top */}
+              <div className="flex items-center gap-3 ml-auto md:ml-4">
+                {todayDay !== null && activeDay !== todayDay && (
+                  <button
+                    onClick={() => scrollToDay(todayDay)}
+                    className="text-gold hover:text-white text-xs font-medium transition-colors"
+                  >
+                    → Сегодня
+                  </button>
+                )}
+                <button
+                  onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+                  className="text-muted-dark hover:text-white text-xs transition-colors"
+                >
+                  ↑ Наверх
+                </button>
+              </div>
             </div>
           </div>
 
@@ -187,11 +208,13 @@ export default function StickyNav({ days }: Props) {
               >
                 <div className="max-w-4xl mx-auto px-4 md:px-8 py-3">
                   <div className="grid grid-cols-5 sm:grid-cols-7 md:grid-cols-10 gap-1.5">
-                    {days.map(day => (
+                    {days.map(day => {
+                      const isToday = day.dayNumber === todayDay;
+                      return (
                       <button
                         key={day.dayNumber}
                         onClick={() => scrollToDay(day.dayNumber)}
-                        className="flex flex-col items-center gap-1 py-2 px-1 rounded-lg hover:bg-white/5 transition-colors"
+                        className={`flex flex-col items-center gap-1 py-2 px-1 rounded-lg hover:bg-white/5 transition-colors ${isToday ? 'ring-1 ring-gold/50' : ''}`}
                         style={{
                           backgroundColor: activeDay === day.dayNumber ? 'rgba(255,255,255,0.08)' : undefined,
                         }}
@@ -200,9 +223,11 @@ export default function StickyNav({ days }: Props) {
                           className="w-3 h-3 rounded-full"
                           style={{ backgroundColor: REGION_COLORS[day.region] }}
                         />
-                        <span className="text-[10px] text-text font-medium">{day.dayNumber}</span>
+                        <span className={`text-[10px] font-medium ${isToday ? 'text-gold' : 'text-text'}`}>{day.dayNumber}</span>
+                        {isToday && <span className="text-[8px] text-gold">сегодня</span>}
                       </button>
-                    ))}
+                      );
+                    })}
                   </div>
                 </div>
               </motion.div>

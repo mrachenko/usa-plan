@@ -106,6 +106,22 @@ export default function DaySection({ config }: Props) {
           </div>
         </motion.div>
 
+        {/* Quick glance — operational summary */}
+        <motion.div
+          initial={{ opacity: 0, y: 10 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ delay: 0.05 }}
+          className="flex flex-wrap gap-x-4 gap-y-1 text-xs text-muted-dark mb-4"
+        >
+          <span>{config.stops[0]?.time} — {config.stops[config.stops.length - 1]?.time}</span>
+          <span>{config.stops.length} точек</span>
+          <span>{config.transportSummary}</span>
+          {config.stops.find(s => s.type === 'hotel') && (
+            <span>🏨 {config.stops.find(s => s.type === 'hotel')?.title}</span>
+          )}
+        </motion.div>
+
         <motion.div
           initial={{ opacity: 0, y: 10 }}
           whileInView={{ opacity: 1, y: 0 }}
