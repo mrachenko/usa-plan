@@ -72,7 +72,7 @@ export default function NavPicker({ lat, lng, title, className, children }: Prop
       </button>
 
       {open && (
-        <div className="absolute bottom-full mb-2 right-0 bg-surface border border-white/10 rounded-xl shadow-2xl overflow-hidden z-50 min-w-[200px]">
+        <div className="absolute bottom-full mb-2 right-0 bg-surface border border-white/10 rounded-xl shadow-2xl overflow-hidden z-[10000] min-w-[200px]">
           {NAVS.map((nav) => (
             <a
               key={nav.name}
