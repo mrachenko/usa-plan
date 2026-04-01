@@ -5,12 +5,12 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        bg: '#0d0d0d',
-        surface: '#1a1a2e',
-        text: '#f0ebe3',
-        muted: '#c8b89a',
-        'muted-dark': '#80706a',
-        gold: '#e8c87a',
+        bg: 'var(--color-bg)',
+        surface: 'var(--color-surface)',
+        text: 'var(--color-text)',
+        muted: 'var(--color-muted)',
+        'muted-dark': 'var(--color-muted-dark)',
+        gold: 'var(--color-gold)',
         'gold-dim': 'rgba(232,200,122,0.1)',
         food: '#f0a050',
         hotel: '#90e870',

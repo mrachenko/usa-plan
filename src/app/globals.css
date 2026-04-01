@@ -39,15 +39,59 @@
   unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
 }
 
+:root {
+  --color-bg: #0d0d0d;
+  --color-surface: #1a1a2e;
+  --color-text: #f0ebe3;
+  --color-muted: #c8b89a;
+  --color-muted-dark: #80706a;
+  --color-gold: #e8c87a;
+  --color-border: rgba(255, 255, 255, 0.08);
+}
+
+html.light {
+  --color-bg: #f5f3ef;
+  --color-surface: #ffffff;
+  --color-text: #1a1a1a;
+  --color-muted: #5a5347;
+  --color-muted-dark: #8a7f74;
+  --color-gold: #b8860b;
+  --color-border: rgba(0, 0, 0, 0.1);
+}
+
 html {
   scroll-behavior: smooth;
 }
 
-
 body {
-  background: #0d0d0d;
-  color: #f0ebe3;
+  background: var(--color-bg);
+  color: var(--color-text);
   font-family: 'DM Sans', sans-serif;
+}
+
+/* Light mode: flip white overlays to black */
+html.light .border-white\/5 { border-color: rgba(0,0,0,0.06); }
+html.light .border-white\/10 { border-color: rgba(0,0,0,0.1); }
+html.light .bg-white\/5 { background-color: rgba(0,0,0,0.04); }
+html.light .bg-white\/8 { background-color: rgba(0,0,0,0.06); }
+html.light .bg-white\/10 { background-color: rgba(0,0,0,0.08); }
+html.light .bg-white\/15 { background-color: rgba(0,0,0,0.1); }
+html.light .text-white { color: #1a1a1a; }
+html.light .text-white\/80 { color: rgba(26,26,26,0.8); }
+html.light .bg-bg\/90 { background-color: rgba(245,243,239,0.9); }
+html.light .bg-bg\/95 { background-color: rgba(245,243,239,0.95); }
+html.light .hover\:text-white:hover { color: #1a1a1a; }
+html.light .hover\:bg-white\/5:hover { background-color: rgba(0,0,0,0.04); }
+html.light .hover\:bg-white\/15:hover { background-color: rgba(0,0,0,0.1); }
+
+/* Lite mode: disable animations, reduce motion */
+html.lite * {
+  animation-duration: 0s !important;
+  animation-delay: 0s !important;
+  transition-duration: 0s !important;
+}
+html.lite [data-gallery] {
+  display: none;
 }
 
 /* Custom scrollbar */
@@ -67,14 +111,19 @@ body {
 
 /* Google Maps InfoWindow override */
 .gm-style-iw {
-  background: #0d0d0d !important;
-  border: 1px solid rgba(255, 255, 255, 0.08) !important;
+  background: var(--color-bg) !important;
+  border: 1px solid var(--color-border) !important;
   border-radius: 12px !important;
   padding: 0 !important;
 }
 .gm-style-iw-d {
   overflow: hidden !important;
 }
-.gm-ui-hover-effect {
+html:not(.light) .gm-ui-hover-effect {
   filter: invert(1);
 }
+
+/* Light mode scrollbar */
+html.light ::-webkit-scrollbar-track { background: #e8e5e0; }
+html.light ::-webkit-scrollbar-thumb { background: #c0b8ae; }
+html.light ::-webkit-scrollbar-thumb:hover { background: #b8860b; }

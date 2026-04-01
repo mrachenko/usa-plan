@@ -137,7 +137,9 @@ export default function DaySection({ config }: Props) {
 
       {/* Photo gallery */}
       {config.gallery && config.gallery.length > 0 && (
-        <PhotoGallery images={config.gallery} />
+        <div data-gallery>
+          <PhotoGallery images={config.gallery} />
+        </div>
       )}
 
       {/* Schedule table */}

@@ -40,12 +40,45 @@ function getTodayDayNumber(): number | null {
   return diff;
 }
 
+function useSettings() {
+  const [light, setLight] = useState(false);
+  const [lite, setLite] = useState(false);
+
+  useEffect(() => {
+    if (localStorage.getItem('theme') === 'light') {
+      setLight(true);
+      document.documentElement.classList.add('light');
+    }
+    if (localStorage.getItem('lite') === 'on') {
+      setLite(true);
+      document.documentElement.classList.add('lite');
+    }
+  }, []);
+
+  const toggleTheme = () => {
+    const next = !light;
+    setLight(next);
+    document.documentElement.classList.toggle('light', next);
+    localStorage.setItem('theme', next ? 'light' : 'dark');
+  };
+
+  const toggleLite = () => {
+    const next = !lite;
+    setLite(next);
+    document.documentElement.classList.toggle('lite', next);
+    localStorage.setItem('lite', next ? 'on' : 'off');
+  };
+
+  return { light, lite, toggleTheme, toggleLite };
+}
+
 export default function StickyNav({ days }: Props) {
   const [visible, setVisible] = useState(false);
   const [activeDay, setActiveDay] = useState(-1);
   const [expanded, setExpanded] = useState(false);
   const navRef = useRef<HTMLDivElement>(null);
   const todayDay = getTodayDayNumber();
+  const settings = useSettings();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -176,7 +209,7 @@ export default function StickyNav({ days }: Props) {
                 ))}
               </div>
 
-              {/* Today + Scroll to top */}
+              {/* Today + Theme + Scroll to top */}
               <div className="flex items-center gap-3 ml-auto md:ml-4">
                 {todayDay !== null && activeDay !== todayDay && (
                   <button
@@ -186,6 +219,20 @@ export default function StickyNav({ days }: Props) {
                     → Сегодня
                   </button>
                 )}
+                <button
+                  onClick={settings.toggleLite}
+                  className={`text-xs transition-colors ${settings.lite ? 'text-gold' : 'text-muted-dark hover:text-white'}`}
+                  title={settings.lite ? 'Полный режим' : 'Экономный режим'}
+                >
+                  {settings.lite ? '⚡' : '🪶'}
+                </button>
+                <button
+                  onClick={settings.toggleTheme}
+                  className="text-muted-dark hover:text-white text-sm transition-colors"
+                  title={settings.light ? 'Тёмная тема' : 'Светлая тема'}
+                >
+                  {settings.light ? '🌙' : '☀️'}
+                </button>
                 <button
                   onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
                   className="text-muted-dark hover:text-white text-xs transition-colors"
