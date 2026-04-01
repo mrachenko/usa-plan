@@ -4,14 +4,11 @@ import { useEffect, useCallback } from 'react';
 import { createPortal } from 'react-dom';
 import { motion, AnimatePresence, useDragControls, PanInfo } from 'framer-motion';
 import { Stop, STOP_COLORS } from '@/lib/types';
+import NavPicker from './NavPicker';
 
 interface Props {
   stop: Stop | null;
   onClose: () => void;
-}
-
-function mapsUrl(stop: Stop) {
-  return `https://www.google.com/maps/search/?api=1&query=${stop.pos.lat},${stop.pos.lng}`;
 }
 
 const TYPE_ICONS: Record<string, string> = {
@@ -104,15 +101,14 @@ function StopCard({ stop, onClose }: { stop: Stop; onClose: () => void }) {
 
         {/* Quick actions */}
         <div className="mt-4 grid grid-cols-2 gap-2">
-          <a
-            href={`https://www.google.com/maps/dir/?api=1&destination=${stop.pos.lat},${stop.pos.lng}`}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="flex items-center justify-center gap-2 py-2.5 text-xs font-medium text-white bg-white/10 border border-white/10 rounded-lg hover:bg-white/15 transition-colors"
+          <NavPicker
+            lat={stop.pos.lat}
+            lng={stop.pos.lng}
+            className="flex items-center justify-center gap-2 py-2.5 text-xs font-medium text-white bg-white/10 border border-white/10 rounded-lg hover:bg-white/15 transition-colors w-full"
           >
             <span>🧭</span>
             <span>Маршрут</span>
-          </a>
+          </NavPicker>
           <button
             onClick={() => navigator.clipboard?.writeText(`${stop.title}: ${stop.pos.lat},${stop.pos.lng}`)}
             className="flex items-center justify-center gap-2 py-2.5 text-xs font-medium text-white bg-white/10 border border-white/10 rounded-lg hover:bg-white/15 transition-colors"

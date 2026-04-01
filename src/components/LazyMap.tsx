@@ -3,6 +3,7 @@
 import { useState } from 'react';
 import dynamic from 'next/dynamic';
 import { DayConfig, STOP_COLORS } from '@/lib/types';
+import NavPicker from './NavPicker';
 
 const DayMap = dynamic(() => import('./DayMap'), { ssr: false });
 
@@ -53,15 +54,11 @@ export default function LazyMap({ config, onStopClick, activeStop }: Props) {
               <div className="text-xs text-muted-dark">{stop.time}</div>
             </button>
 
-            <a
-              href={`https://www.google.com/maps/dir/?api=1&destination=${stop.pos.lat},${stop.pos.lng}`}
-              target="_blank"
-              rel="noopener noreferrer"
+            <NavPicker
+              lat={stop.pos.lat}
+              lng={stop.pos.lng}
               className="shrink-0 w-9 h-9 rounded-lg bg-white/5 flex items-center justify-center text-base hover:bg-gold/20 transition-colors"
-              title="Навигация"
-            >
-              📍
-            </a>
+            />
           </div>
         ))}
       </div>
