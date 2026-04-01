@@ -46,6 +46,8 @@
   --color-muted: #c8b89a;
   --color-muted-dark: #80706a;
   --color-gold: #e8c87a;
+  --color-food: #f0a050;
+  --color-hotel: #90e870;
   --color-border: rgba(255, 255, 255, 0.08);
 }
 
@@ -53,10 +55,12 @@ html.light {
   --color-bg: #f5f3ef;
   --color-surface: #ffffff;
   --color-text: #1a1a1a;
-  --color-muted: #5a5347;
-  --color-muted-dark: #8a7f74;
-  --color-gold: #b8860b;
-  --color-border: rgba(0, 0, 0, 0.1);
+  --color-muted: #4a443c;
+  --color-muted-dark: #6b6258;
+  --color-gold: #8b6508;
+  --color-food: #c07020;
+  --color-hotel: #3a8a20;
+  --color-border: rgba(0, 0, 0, 0.12);
 }
 
 html {
@@ -68,6 +72,34 @@ body {
   color: var(--color-text);
   font-family: 'DM Sans', sans-serif;
 }
+
+/* Light mode: darken inline colored text for readability */
+html.light .text-gold { color: var(--color-gold) !important; }
+html.light [style*="color: #e8c87a"],
+html.light [style*="color:#e8c87a"] { color: #8b6508 !important; }
+html.light [style*="color: #c8c0b4"],
+html.light [style*="color:#c8c0b4"] { color: #6b6258 !important; }
+html.light [style*="color: #e07040"],
+html.light [style*="color:#e07040"] { color: #b84520 !important; }
+html.light [style*="color: #64b4ff"],
+html.light [style*="color:#64b4ff"] { color: #2070c0 !important; }
+html.light [style*="color: #40c8a0"],
+html.light [style*="color:#40c8a0"] { color: #1a8a60 !important; }
+html.light [style*="color: #f0a050"],
+html.light [style*="color:#f0a050"] { color: #c07020 !important; }
+html.light [style*="color: #90e870"],
+html.light [style*="color:#90e870"] { color: #3a8a20 !important; }
+
+/* Light mode: also handle color with opacity suffix (e.g. #e8c87a99) */
+html.light [style*="color: #e8c87a99"] { color: rgba(139,101,8,0.6) !important; }
+html.light [style*="color: #e0704099"] { color: rgba(184,69,32,0.6) !important; }
+html.light [style*="color: #64b4ff99"] { color: rgba(32,112,192,0.6) !important; }
+html.light [style*="color: #40c8a099"] { color: rgba(26,138,96,0.6) !important; }
+html.light [style*="color: #c8c0b499"] { color: rgba(107,98,88,0.6) !important; }
+
+/* Light mode: fix gold-dim background */
+html.light .bg-gold-dim { background-color: rgba(139,101,8,0.08) !important; }
+html.light .text-gold\/60 { color: rgba(139,101,8,0.6) !important; }
 
 /* Light mode: flip white overlays to black */
 html.light .border-white\/5 { border-color: rgba(0,0,0,0.06); }
