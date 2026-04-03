@@ -38,6 +38,7 @@ const day7: DayConfig = {
       tip: 'Заправьтесь в Springdale — следующая нормальная заправка через 100 км в Kanab. На US-163 остановитесь у знака «Forrest Gump Point» (mile marker 13 на US-163, к северу от Monument Valley) — культовое фото на пустой дороге.',
       image: 'navajo-highway.webp',
       price: '',
+      photoTip: 'Mile marker 13, US-163 — дорога из Форреста Гампа, утро.',
       pos: { lat: 37.0, lng: -112.5 },
     },
     {
@@ -117,6 +118,7 @@ const day7: DayConfig = {
       tip: 'Лучшая точка — смотровая площадка у The View Hotel или Visitor Center. Приходите за 40 мин до заката. Штатив для камеры — must have. Закат в июле ~20:15. После заката — ещё 20 мин самый красивый свет (golden hour).',
       image: 'monument-valley-sunset.webp',
       price: 'бесплатно',
+      photoTip: 'У The View Hotel за 40 мин до заката — бьютты меняют цвет.',
       pos: { lat: 36.9833, lng: -110.1142 },
     },
     {
@@ -144,6 +146,7 @@ const day7: DayConfig = {
       tip: 'Выйдите на балкон отеля или на парковку (подальше от фонарей). Глазам нужно 15–20 мин чтобы привыкнуть к темноте — не смотрите в телефон. Для фото: штатив, выдержка 15–25 сек, ISO 3200, f/2.8. Июль — лучший месяц для Млечного Пути.',
       image: 'monument-valley-stars.webp',
       price: 'бесплатно',
+      photoTip: 'Млечный Путь над бьюттами: ISO 3200, 20 сек, f/2.8, штатив.',
       pos: { lat: 36.9833, lng: -110.1142 },
     },
   ],

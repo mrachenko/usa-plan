@@ -104,6 +104,7 @@ const day14: DayConfig = {
       rating: '⭐4.8',
       image: 'kaanapali-beach.webp',
       price: 'бесплатно',
+      photoTip: 'У Black Rock с маской — черепахи под водой, waterproof чехол.',
       pos: { lat: 20.9250, lng: -156.6940 },
     },
     {
@@ -132,6 +133,7 @@ const day14: DayConfig = {
       image: 'hula-grill.webp',
       phone: '+1-808-667-1998',
       price: '$280',
+      photoTip: 'Огненный танец на фоне заката — без вспышки.',
       pos: { lat: 20.8725, lng: -156.6790 },
     },
   ],

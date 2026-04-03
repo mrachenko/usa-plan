@@ -80,6 +80,7 @@ const day16: DayConfig = {
       rating: '⭐4.7',
       image: 'waianapanapa-black-beach.webp',
       price: '$15',
+      photoTip: 'Черный песок + бирюзовые волны — поляризатор, с высоты скалы.',
       pos: { lat: 20.7892, lng: -156.0013 },
     },
     {
@@ -108,6 +109,7 @@ const day16: DayConfig = {
       rating: '⭐4.8',
       image: 'seven-sacred-pools.webp',
       price: '$30',
+      photoTip: 'Бамбуковый лес: стволы как колонны, зеленый свет сверху.',
       pos: { lat: 20.6627, lng: -156.0421 },
     },
     {

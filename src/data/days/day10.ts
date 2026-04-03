@@ -130,6 +130,7 @@ const day10: DayConfig = {
       tip: 'Прогуляйтесь по Ocean Front Walk от Windward Ave на юг. Скейт-парк, Muscle Beach, murals. Закат ~20:00 в июле — найдите место на песке за 15 мин.',
       image: 'venice-beach.webp',
       price: 'бесплатно',
+      photoTip: 'Закат: скейтеры на фоне алого неба, снимайте с пирса.',
       pos: { lat: 33.985, lng: -118.4695 },
     },
     {

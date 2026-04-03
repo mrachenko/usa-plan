@@ -52,6 +52,7 @@ const day17: DayConfig = {
       rating: '⭐4.5',
       image: 'molokini-crater.webp',
       price: '$170–180',
+      photoTip: 'Под водой: рыбы на фоне солнечных лучей, wide angle.',
       pos: { lat: 20.6320, lng: -156.4962 },
     },
     {
@@ -80,6 +81,7 @@ const day17: DayConfig = {
       rating: '⭐4.7',
       image: 'kaanapali-beach.webp',
       price: 'бесплатно',
+      photoTip: 'У Black Rock с маской — черепахи под водой, waterproof чехол.',
       pos: { lat: 20.9250, lng: -156.6940 },
     },
     {

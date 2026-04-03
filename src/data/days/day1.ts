@@ -53,6 +53,7 @@ const day1: DayConfig = {
       rating: '⭐4.8 (98 000)',
       image: 'brooklyn-bridge.webp',
       price: 'бесплатно',
+      photoTip: 'Снимайте с середины в сторону Манхэттена — лучше за час до заката.',
       pos: { lat: 40.7058, lng: -73.9969 },
     },
     {
@@ -67,6 +68,7 @@ const day1: DayConfig = {
       rating: '⭐4.7 (12 000)',
       image: 'dumbo.webp',
       price: 'бесплатно',
+      photoTip: 'Washington St: Манхэттен-Бридж в рамке между домами, golden hour 15:00–17:00.',
       pos: { lat: 40.7033, lng: -73.9893 },
     },
     {
@@ -120,6 +122,7 @@ const day1: DayConfig = {
       tip: 'Снова правый борт — теперь вид на Downtown skyline.',
       image: 'manhattan-skyline.webp',
       price: 'бесплатно',
+      photoTip: 'Правый борт — силуэт Downtown Manhattan на закате ~20:00.',
       pos: { lat: 40.7001, lng: -74.017 },
     },
     {

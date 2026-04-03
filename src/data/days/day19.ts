@@ -146,6 +146,7 @@ const day19: DayConfig = {
       tip: 'Последний butterbeer на прощание. Сфотографируйте замок с подсветкой. Магазин Ollivander\'s — купите палочку на память (если ещё не купили).',
       image: 'hogsmeade-night.webp',
       price: 'включено',
+      photoTip: 'Хогвартс с подсветкой 20:30 — снизу вверх, wide angle.',
       pos: { lat: 34.1381, lng: -118.3534 },
     },
     {

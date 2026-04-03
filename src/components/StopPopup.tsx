@@ -97,6 +97,12 @@ function StopCard({ stop, onClose }: { stop: Stop; onClose: () => void }) {
           {stop.price && (
             <p className="text-xs text-muted-dark">💰 {stop.price}</p>
           )}
+
+          {stop.photoTip && (
+            <div className="mt-2 p-2.5 bg-gold/5 border border-gold/10 rounded-lg">
+              <p className="text-xs text-gold">📸 {stop.photoTip}</p>
+            </div>
+          )}
         </div>
 
         {/* Quick actions */}

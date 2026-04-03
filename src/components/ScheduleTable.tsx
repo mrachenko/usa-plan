@@ -68,6 +68,7 @@ export default function ScheduleTable({ stops, routes, onStopClick, activeStop }
               {stop.num.length <= 2 ? stop.num : '★'}
             </span>
             <span className="font-medium">{stop.title}</span>
+            {stop.photoTip && <span className="text-[10px]" title={stop.photoTip}>📸</span>}
           </div>
         </td>
         <td className="py-3 px-3 text-muted text-xs hidden md:table-cell max-w-md">

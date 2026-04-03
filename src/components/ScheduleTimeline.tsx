@@ -79,8 +79,10 @@ export default function ScheduleTimeline({ stops, routes, onStopClick, activeSto
                     {stop.time}
                   </span>
                   <span className="font-medium text-sm truncate">{stop.title}</span>
+                  {stop.photoTip && <span className="text-[10px] shrink-0" title={stop.photoTip}>📸</span>}
                 </div>
                 <p className="text-xs text-muted mt-0.5 line-clamp-2">{stop.desc}</p>
+                {stop.photoTip && <p className="text-[10px] text-gold/70 mt-0.5">📸 {stop.photoTip}</p>}
               </div>
 
               {/* Price */}

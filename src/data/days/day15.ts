@@ -52,6 +52,7 @@ const day15: DayConfig = {
       rating: '⭐4.9',
       image: 'haleakala-summit.webp',
       price: '$31',
+      photoTip: 'Облака внизу горят золотом, снимайте с нижней ступеньки.',
       pos: { lat: 20.7097, lng: -156.2533 },
     },
     {

@@ -133,6 +133,7 @@ const day5: DayConfig = {
       tip: 'Вечером шоу каждые 15 минут (с 20:00). Лучший вид — с моста между Bellagio и Cosmopolitan. Или из ресторана на террасе Bellagio (бронь нужна). Посмотрите 2–3 шоу — музыка каждый раз разная.',
       image: 'bellagio-fountains.webp',
       price: 'бесплатно',
+      photoTip: 'Мост между Bellagio и Cosmo, момент макс. подъёма, после 20:30.',
       pos: { lat: 36.1126, lng: -115.1767 },
     },
     {

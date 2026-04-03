@@ -25,6 +25,7 @@ export interface Stop {
   image: string;
   price: string;
   phone?: string;
+  photoTip?: string;
   pos: { lat: number; lng: number };
 }
 
