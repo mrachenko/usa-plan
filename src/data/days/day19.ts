@@ -150,6 +150,20 @@ const day19: DayConfig = {
       pos: { lat: 34.1381, lng: -118.3534 },
     },
     {
+      id: 'innout-lax-spotting',
+      type: 'food',
+      num: '📸',
+      title: 'In-N-Out Burger (LAX Spotting)',
+      time: '20:45',
+      desc: 'Легендарная точка — бургер под самолётами, садящимися в 30 метрах над головой.',
+      why: 'Лучший финальный кадр поездки. Самолёты каждые 90 секунд.',
+      tip: 'Sepulveda Blvd у LAX. Патио с видом на полосу. Берите Double-Double.',
+      photoTip: 'Серийная съёмка — поймайте самолёт прямо над бургером в руке.',
+      image: 'in-n-out.webp',
+      price: '$10-15',
+      pos: { lat: 33.9729, lng: -118.3928 },
+    },
+    {
       id: 'uber-lax',
       type: 'drive',
       num: '🚕',
@@ -175,21 +189,6 @@ const day19: DayConfig = {
       price: 'TBD',
       pos: { lat: 33.9425, lng: -118.4081 },
     },
-    {
-      id: 'innout-lax-spotting',
-      type: 'food',
-      num: '📸',
-      title: 'In-N-Out Burger (LAX Spotting)',
-      time: '~21:00',
-      desc: 'Легендарная точка — бургер под самолётами, садящимися в 30 метрах над головой.',
-      why: 'Лучший финальный кадр поездки. Самолёты каждые 90 секунд.',
-      tip: 'Sepulveda Blvd у LAX. Патио с видом на полосу. Берите Double-Double.',
-      photoTip: 'Серийная съёмка — поймайте самолёт прямо над бургером в руке.',
-      image: 'in-n-out.webp',
-      price: '$10-15',
-      pos: { lat: 33.9729, lng: -118.3928 },
-    }
-  
   ],
   routes: [
     { from: 0, to: 1, mode: 'taxi' },
@@ -201,8 +200,8 @@ const day19: DayConfig = {
     { from: 6, to: 7, mode: 'walking' },
     { from: 7, to: 8, mode: 'walking' },
     { from: 8, to: 9, mode: 'walking' },
-    { from: 9, to: 10, mode: 'taxi' },
-    { from: 10, to: 11, mode: 'walking' },
+    { from: 9, to: 11, mode: 'taxi' },
+    { from: 11, to: 12, mode: 'walking' },
   ],
   infoBlocks: [
     {

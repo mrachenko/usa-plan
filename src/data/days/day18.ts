@@ -124,7 +124,7 @@ const day18: DayConfig = {
       type: 'gold',
       num: '📸',
       title: 'Mulholland Drive Overlook',
-      time: '~20:30',
+      time: '20:30',
       desc: 'Панорама ночного Лос-Анджелеса с холмов — огни города до горизонта.',
       why: '5 минут от Universal Studios. Идеальное завершение дня — весь LA у ног.',
       tip: 'Штатив для ночной панорамы. По пути от Universal к отелю/аэропорту.',
@@ -132,8 +132,7 @@ const day18: DayConfig = {
       image: 'la-hotel-night.webp',
       price: 'бесплатно',
       pos: { lat: 34.1283, lng: -118.3268 },
-    }
-  
+    },
   ],
   routes: [
     { from: 0, to: 1, mode: 'driving' },
