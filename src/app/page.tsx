@@ -3,6 +3,9 @@
 import { motion } from 'framer-motion';
 import DaySection from '@/components/DaySection';
 import StickyNav from '@/components/StickyNav';
+import TripCountdown from '@/components/TripCountdown';
+import TipCalc from '@/components/TipCalc';
+import UnitConverter from '@/components/UnitConverter';
 import HotelTable from '@/components/HotelTable';
 import BookingTable from '@/components/BookingTable';
 import BudgetTable from '@/components/BudgetTable';
@@ -101,8 +104,17 @@ export default function Home() {
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
+            transition={{ delay: 1.0 }}
+            className="mt-6"
+          >
+            <TripCountdown />
+          </motion.div>
+
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
             transition={{ delay: 1.8 }}
-            className="mt-8"
+            className="mt-6"
           >
             <motion.div
               animate={{ y: [0, 8, 0] }}
@@ -253,9 +265,26 @@ export default function Home() {
         </motion.div>
         <BudgetTable />
 
+        {/* Tools */}
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          className="pt-16 pb-8"
+        >
+          <p className="text-xs tracking-[0.3em] uppercase mb-2 text-gold/60">Инструменты</p>
+          <h2 className="font-display text-4xl md:text-5xl font-bold">
+            🧰 <span className="text-gold">Полезное</span>
+          </h2>
+        </motion.div>
+        <div className="grid md:grid-cols-2 gap-4 mb-8">
+          <TipCalc />
+          <UnitConverter />
+        </div>
+
         {/* Footer with version */}
         <div className="h-32 flex items-end justify-center pb-6">
-          <p className="text-[10px] text-muted-dark/40 tracking-wider">v2.1</p>
+          <p className="text-[10px] text-muted-dark/40 tracking-wider">v3.0</p>
         </div>
       </div>
     </main>
