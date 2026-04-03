@@ -64,8 +64,13 @@ export default function NavPicker({ lat, lng, title, className, children }: Prop
         setOpen(false);
       }
     };
+    const onScroll = () => setOpen(false);
     document.addEventListener('click', close);
-    return () => document.removeEventListener('click', close);
+    window.addEventListener('scroll', onScroll, { passive: true });
+    return () => {
+      document.removeEventListener('click', close);
+      window.removeEventListener('scroll', onScroll);
+    };
   }, [open]);
 
   const handleOpen = (e: React.MouseEvent) => {

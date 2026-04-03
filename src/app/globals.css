@@ -112,6 +112,7 @@ html.light :not([data-hero]) > .text-white { color: #1a1a1a; }
 html.light :not([data-hero]) > .text-white\/80 { color: rgba(26,26,26,0.8); }
 html.light [data-hero] .text-white { color: #ffffff !important; }
 html.light [data-hero] .text-white\/80 { color: rgba(255,255,255,0.8) !important; }
+html.light [data-hero] .text-gold { color: #f0c850 !important; }
 html.light .bg-bg\/90 { background-color: rgba(245,243,239,0.9); }
 html.light .bg-bg\/95 { background-color: rgba(245,243,239,0.95); }
 html.light :not([data-hero]) .hover\:text-white:hover { color: #1a1a1a; }
