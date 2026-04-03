@@ -1,11 +1,12 @@
 'use client';
 
 import { useState, useEffect } from 'react';
-import { packItems, REGION_PACK, PackCategory } from '@/data/packing';
+import { packItems, DAY_PACK } from '@/data/packing';
 
 const STORAGE_KEY = 'usa-plan-packed';
 
 interface Props {
+  dayNumber: number;
   region: string;
 }
 
@@ -16,16 +17,18 @@ function loadPacked(): Set<string> {
   } catch { return new Set(); }
 }
 
-export default function DayPacking({ region }: Props) {
+export default function DayPacking({ dayNumber }: Props) {
   const [packed, setPacked] = useState<Set<string>>(new Set());
   const [expanded, setExpanded] = useState(false);
 
   useEffect(() => { setPacked(loadPacked()); }, []);
 
-  const categories = REGION_PACK[region] || ['always'];
-  const items = packItems.filter(i =>
-    i.categories.some(c => categories.includes(c))
-  );
+  const dayItemIds = DAY_PACK[dayNumber];
+  if (!dayItemIds || dayItemIds.length === 0) return null;
+
+  const items = dayItemIds
+    .map(id => packItems.find(i => i.id === id))
+    .filter(Boolean) as typeof packItems;
 
   const toggle = (id: string) => {
     setPacked(prev => {
@@ -83,7 +86,10 @@ export default function DayPacking({ region }: Props) {
                 {done && '✓'}
               </span>
               <span className="text-xs shrink-0">{item.emoji}</span>
-              <span className={`text-xs ${done ? 'line-through text-muted-dark' : 'text-text'}`}>{item.name}</span>
+              <span className={`text-xs ${done ? 'line-through text-muted-dark' : 'text-text'}`}>
+                {item.name}
+                {item.note && <span className="text-muted-dark ml-1">— {item.note}</span>}
+              </span>
             </div>
           );
         })}

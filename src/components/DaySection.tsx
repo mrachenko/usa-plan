@@ -218,7 +218,7 @@ export default function DaySection({ config }: Props) {
       {/* Day tools */}
       <div className="mt-6 space-y-3">
         <DesertChecklist dayNumber={config.dayNumber} />
-        <DayPacking region={config.region} />
+        <DayPacking dayNumber={config.dayNumber} region={config.region} />
         <PlanB dayNumber={config.dayNumber} />
         <DayNotes dayNumber={config.dayNumber} />
       </div>

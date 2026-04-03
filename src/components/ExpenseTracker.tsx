@@ -107,21 +107,21 @@ export default function ExpenseTracker() {
       {/* Add expense */}
       <div className="space-y-2 mb-4">
         <div className="flex gap-2">
-          <span className="text-muted-dark text-lg self-center">$</span>
+          <span className="text-muted-dark text-lg self-center shrink-0">$</span>
           <input
             type="number"
             inputMode="decimal"
             placeholder="Сумма"
             value={amount}
             onChange={(e) => setAmount(e.target.value)}
-            className="flex-1 bg-white/5 border border-white/10 rounded-lg px-3 py-2 text-text outline-none focus:border-gold/50"
+            className="w-24 shrink-0 bg-white/5 border border-white/10 rounded-lg px-3 py-2 text-text outline-none focus:border-gold/50"
           />
           <input
             type="text"
             placeholder="Заметка"
             value={note}
             onChange={(e) => setNote(e.target.value)}
-            className="flex-1 bg-white/5 border border-white/10 rounded-lg px-3 py-2 text-text text-sm outline-none focus:border-gold/50"
+            className="flex-1 min-w-0 bg-white/5 border border-white/10 rounded-lg px-3 py-2 text-text text-sm outline-none focus:border-gold/50"
           />
         </div>
         <div className="flex gap-1 flex-wrap">

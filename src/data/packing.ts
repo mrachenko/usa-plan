@@ -18,13 +18,35 @@ export const PACK_CATEGORIES: Record<PackCategory, { label: string; emoji: strin
   always: { label: 'Всегда', emoji: '🏥' },
 };
 
-// Map day region to pack categories
+// Map day region to pack categories (for full packing list filter)
 export const REGION_PACK: Record<string, PackCategory[]> = {
-  'new-york': ['city', 'always'],
-  'vegas-parks': ['parks', 'roadtrip', 'always'],
-  'los-angeles': ['city', 'always'],
-  'maui': ['beach', 'always'],
-  'transit': ['always'],
+  'new-york': ['city'],
+  'vegas-parks': ['parks', 'roadtrip'],
+  'los-angeles': ['city'],
+  'maui': ['beach'],
+  'transit': [],
+};
+
+// Per-day specific items (only what's unique for THIS day)
+export const DAY_PACK: Record<number, string[]> = {
+  1: ['city-shoes', 'city-hoodie', 'always-powerbank'],
+  2: ['city-shoes', 'city-smartcasual', 'always-powerbank'],
+  3: ['city-shoes', 'city-bag', 'always-powerbank'],
+  4: ['city-shoes', 'city-bag', 'always-powerbank'],
+  5: ['city-smartcasual', 'always-powerbank'], // Vegas dress code
+  6: ['park-boots', 'park-neosocks', 'park-pole', 'park-drybag', 'park-water', 'park-hat', 'always-spf'], // Narrows!
+  7: ['park-hat', 'park-water', 'road-polarized', 'always-spf', 'park-electrolytes'], // Monument Valley heat
+  8: ['park-hat', 'park-water', 'always-spf', 'park-electrolytes'], // Horseshoe Bend early morning
+  9: ['park-boots', 'park-hat', 'park-water', 'always-spf', 'road-flashlight'], // Grand Canyon sunrise = early
+  10: ['road-polarized', 'road-charger', 'road-cooler', 'park-electrolytes', 'road-buff'], // Long desert drive
+  11: ['city-shoes', 'always-spf', 'always-sunglasses'], // LA Malibu
+  12: ['city-shoes', 'always-spf', 'city-bag'], // LA Getty/Griffith
+  13: ['city-shoes', 'city-bag', 'always-powerbank'], // Venice/Korean BBQ
+  14: ['beach-warm', 'beach-pants', 'beach-swim', 'beach-sunscreen'], // Haleakala sunrise + beach
+  15: ['beach-sunscreen', 'beach-rashguard', 'beach-snorkel', 'beach-rain'], // Road to Hana
+  16: ['beach-sunscreen', 'beach-rashguard', 'beach-swim'], // Snorkeling/beach
+  17: ['beach-sunscreen', 'beach-snorkel', 'beach-rashguard'], // Molokini
+  18: ['city-shoes', 'always-powerbank', 'city-hoodie'], // Universal Studios
 };
 
 export const packItems: PackItem[] = [

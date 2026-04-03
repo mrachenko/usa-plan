@@ -3,6 +3,7 @@
 import { useState, useEffect, useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import EmergencyPanel from './EmergencyPanel';
+import QuickTools from './QuickTools';
 
 interface DayInfo {
   dayNumber: number;
@@ -220,6 +221,7 @@ export default function StickyNav({ days }: Props) {
                     → Сегодня
                   </button>
                 )}
+                <QuickTools />
                 <EmergencyPanel />
                 <button
                   onClick={settings.toggleLite}
