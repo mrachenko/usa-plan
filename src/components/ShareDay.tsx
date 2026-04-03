@@ -10,18 +10,22 @@ interface Props {
   weekday: string;
   title: string;
   subtitle: string;
+  description: string;
   transportSummary: string;
   stops: Stop[];
 }
 
-export default function ShareDay({ dayNumber, date, weekday, title, subtitle, transportSummary, stops }: Props) {
+export default function ShareDay({ dayNumber, date, weekday, title, subtitle, description, transportSummary, stops }: Props) {
   const share = async () => {
     const sun = sunData[dayNumber];
     const weather = weatherData[dayNumber];
 
     const stopsList = stops
-      .map(s => `  ${s.num}. ${s.title} (${s.time})`)
+      .map(s => `  ${s.num === '📸' ? '📸' : s.num + '.'} ${s.title} (${s.time})`)
       .join('\n');
+
+    // Clean description: first paragraph only, no newlines
+    const shortDesc = description.split('\n\n')[0];
 
     const lines = [
       `🇺🇸 День ${dayNumber} — ${title}`,
@@ -32,7 +36,7 @@ export default function ShareDay({ dayNumber, date, weekday, title, subtitle, tr
     if (weather) lines.push(`${weather.icon} ${weather.min}–${weather.max}°C`);
     if (sun) lines.push(`☀️ ${sun.sunrise} → 🌅 ${sun.sunset}`);
 
-    lines.push('', subtitle, '', '📋 Маршрут:', stopsList, '', 'USA 2026 Road Trip 🚗');
+    lines.push('', shortDesc, '', '📋 Маршрут:', stopsList, '', 'USA 2026 Road Trip 🚗');
 
     const text = lines.join('\n');
 
