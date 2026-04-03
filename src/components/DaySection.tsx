@@ -13,6 +13,8 @@ import DayNotes from './DayNotes';
 import DayPacking from './DayPacking';
 import PlanB from './PlanB';
 import DesertChecklist from './DesertChecklist';
+import WeatherWidget from './WeatherWidget';
+import ShareDay from './ShareDay';
 import { sunData } from '@/data/sun';
 
 interface Props {
@@ -137,6 +139,8 @@ export default function DaySection({ config }: Props) {
           {sunData[config.dayNumber] && (
             <span>☀️ {sunData[config.dayNumber].sunrise} → 🌅 {sunData[config.dayNumber].sunset}</span>
           )}
+          <WeatherWidget dayNumber={config.dayNumber} />
+          <ShareDay dayNumber={config.dayNumber} date={config.date} title={config.title} stopsCount={config.stops.length} />
           {config.stops.find(s => s.type === 'hotel') && (
             <span>🏨 {config.stops.find(s => s.type === 'hotel')?.title}</span>
           )}
