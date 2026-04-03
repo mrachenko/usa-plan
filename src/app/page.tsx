@@ -6,6 +6,7 @@ import StickyNav from '@/components/StickyNav';
 import TripCountdown from '@/components/TripCountdown';
 import TipCalc from '@/components/TipCalc';
 import UnitConverter from '@/components/UnitConverter';
+import ExpenseTracker from '@/components/ExpenseTracker';
 import HotelTable from '@/components/HotelTable';
 import BookingTable from '@/components/BookingTable';
 import BudgetTable from '@/components/BudgetTable';
@@ -264,6 +265,9 @@ export default function Home() {
           </h2>
         </motion.div>
         <BudgetTable />
+        <div className="mt-6">
+          <ExpenseTracker />
+        </div>
 
         {/* Tools */}
         <motion.div

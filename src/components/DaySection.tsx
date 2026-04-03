@@ -9,6 +9,7 @@ import LazyMap from './LazyMap';
 import InfoBlock from './InfoBlock';
 import StopPopup from './StopPopup';
 import PhotoGallery from './PhotoGallery';
+import DayNotes from './DayNotes';
 import { sunData } from '@/data/sun';
 
 interface Props {
@@ -206,6 +207,11 @@ export default function DaySection({ config }: Props) {
           ))}
         </div>
       )}
+
+      {/* Day notes */}
+      <div className="mt-6">
+        <DayNotes dayNumber={config.dayNumber} />
+      </div>
 
       {/* Stop popup */}
       <StopPopup
