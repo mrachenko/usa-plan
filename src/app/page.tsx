@@ -9,6 +9,7 @@ import UnitConverter from '@/components/UnitConverter';
 import ExpenseTracker from '@/components/ExpenseTracker';
 import TripMap from '@/components/TripMap';
 import TripStats from '@/components/TripStats';
+import PackingList from '@/components/PackingList';
 import HotelTable from '@/components/HotelTable';
 import BookingTable from '@/components/BookingTable';
 import BudgetTable from '@/components/BudgetTable';
@@ -275,6 +276,20 @@ export default function Home() {
         <div className="mt-6">
           <ExpenseTracker />
         </div>
+
+        {/* Packing list */}
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          className="pt-16 pb-8"
+        >
+          <p className="text-xs tracking-[0.3em] uppercase mb-2 text-gold/60">Подготовка</p>
+          <h2 className="font-display text-4xl md:text-5xl font-bold">
+            🎒 <span className="text-gold">Что собрать</span>
+          </h2>
+        </motion.div>
+        <PackingList />
 
         {/* Tools */}
         <motion.div

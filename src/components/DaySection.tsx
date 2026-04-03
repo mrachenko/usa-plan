@@ -10,6 +10,7 @@ import InfoBlock from './InfoBlock';
 import StopPopup from './StopPopup';
 import PhotoGallery from './PhotoGallery';
 import DayNotes from './DayNotes';
+import DayPacking from './DayPacking';
 import { sunData } from '@/data/sun';
 
 interface Props {
@@ -208,8 +209,9 @@ export default function DaySection({ config }: Props) {
         </div>
       )}
 
-      {/* Day notes */}
-      <div className="mt-6">
+      {/* Day packing + notes */}
+      <div className="mt-6 space-y-3">
+        <DayPacking region={config.region} />
         <DayNotes dayNumber={config.dayNumber} />
       </div>
 
