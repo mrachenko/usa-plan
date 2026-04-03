@@ -1,6 +1,8 @@
 export interface PlanBOption {
   name: string;
   why: string;
+  desc?: string;
+  image?: string;
   pos?: { lat: number; lng: number };
 }
 

@@ -1,15 +1,40 @@
 'use client';
 
+import { Stop } from '@/lib/types';
+import { sunData } from '@/data/sun';
+import { weatherData } from '@/data/weather';
+
 interface Props {
   dayNumber: number;
   date: string;
+  weekday: string;
   title: string;
-  stopsCount: number;
+  subtitle: string;
+  transportSummary: string;
+  stops: Stop[];
 }
 
-export default function ShareDay({ dayNumber, date, title, stopsCount }: Props) {
+export default function ShareDay({ dayNumber, date, weekday, title, subtitle, transportSummary, stops }: Props) {
   const share = async () => {
-    const text = `🇺🇸 День ${dayNumber} — ${title}\n📅 ${date}\n📍 ${stopsCount} точек\n\nUSA 2026 Road Trip`;
+    const sun = sunData[dayNumber];
+    const weather = weatherData[dayNumber];
+
+    const stopsList = stops
+      .map(s => `  ${s.num}. ${s.title} (${s.time})`)
+      .join('\n');
+
+    const lines = [
+      `🇺🇸 День ${dayNumber} — ${title}`,
+      `📅 ${date}, ${weekday}`,
+      `📍 ${stops.length} точек · ${transportSummary}`,
+    ];
+
+    if (weather) lines.push(`${weather.icon} ${weather.min}–${weather.max}°C`);
+    if (sun) lines.push(`☀️ ${sun.sunrise} → 🌅 ${sun.sunset}`);
+
+    lines.push('', subtitle, '', '📋 Маршрут:', stopsList, '', 'USA 2026 Road Trip 🚗');
+
+    const text = lines.join('\n');
 
     if (navigator.share) {
       try {

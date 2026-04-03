@@ -140,7 +140,7 @@ export default function DaySection({ config }: Props) {
             <span>☀️ {sunData[config.dayNumber].sunrise} → 🌅 {sunData[config.dayNumber].sunset}</span>
           )}
           <WeatherWidget dayNumber={config.dayNumber} />
-          <ShareDay dayNumber={config.dayNumber} date={config.date} title={config.title} stopsCount={config.stops.length} />
+          <ShareDay dayNumber={config.dayNumber} date={config.date} weekday={config.weekday} title={config.title} subtitle={config.subtitle} transportSummary={config.transportSummary} stops={config.stops} />
           {config.stops.find(s => s.type === 'hotel') && (
             <span>🏨 {config.stops.find(s => s.type === 'hotel')?.title}</span>
           )}
