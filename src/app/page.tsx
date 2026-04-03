@@ -7,6 +7,8 @@ import TripCountdown from '@/components/TripCountdown';
 import TipCalc from '@/components/TipCalc';
 import UnitConverter from '@/components/UnitConverter';
 import ExpenseTracker from '@/components/ExpenseTracker';
+import TripMap from '@/components/TripMap';
+import TripStats from '@/components/TripStats';
 import HotelTable from '@/components/HotelTable';
 import BookingTable from '@/components/BookingTable';
 import BudgetTable from '@/components/BudgetTable';
@@ -127,6 +129,11 @@ export default function Home() {
           </motion.div>
         </div>
       </section>
+
+      {/* Overview map */}
+      <div className="max-w-4xl mx-auto px-4 md:px-8 py-8">
+        <TripMap />
+      </div>
 
       {/* Content */}
       <div className="max-w-4xl mx-auto px-4 md:px-8">
@@ -285,6 +292,20 @@ export default function Home() {
           <TipCalc />
           <UnitConverter />
         </div>
+
+        {/* Trip stats */}
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          className="pt-16 pb-8"
+        >
+          <p className="text-xs tracking-[0.3em] uppercase mb-2 text-gold/60">Итоги</p>
+          <h2 className="font-display text-4xl md:text-5xl font-bold">
+            🏆 <span className="text-gold">Поездка в цифрах</span>
+          </h2>
+        </motion.div>
+        <TripStats />
 
         {/* Footer with version */}
         <div className="h-32 flex items-end justify-center pb-6">

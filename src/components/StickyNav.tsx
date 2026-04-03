@@ -2,6 +2,7 @@
 
 import { useState, useEffect, useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
+import EmergencyPanel from './EmergencyPanel';
 
 interface DayInfo {
   dayNumber: number;
@@ -219,6 +220,7 @@ export default function StickyNav({ days }: Props) {
                     → Сегодня
                   </button>
                 )}
+                <EmergencyPanel />
                 <button
                   onClick={settings.toggleLite}
                   className={`text-xs transition-colors ${settings.lite ? 'text-gold' : 'text-muted-dark hover:text-white'}`}
