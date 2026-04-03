@@ -38,7 +38,7 @@ const day11: DayConfig = {
       why: 'Обойдите по садовой дорожке на крыше — каждый шаг новый кадр.',
       tip: 'Утром металл меньше бликует. Рядом — Last Bookstore и Angels Flight.',
       photoTip: 'Утренний жёсткий свет создаёт графичные тени на изогнутых стенах.',
-      image: 'la-skyline.webp',
+      image: 'la-downtown.webp',
       price: 'бесплатно',
       pos: { lat: 34.0553, lng: -118.2498 },
     },

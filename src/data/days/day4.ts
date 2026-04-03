@@ -91,7 +91,7 @@ const day4: DayConfig = {
       desc: 'F/Q → W 4th St, ~45 мин. Возвращение в Манхэттен.',
       why: 'Прямая ветка от Coney Island до Greenwich Village — не нужно пересаживаться. 45 минут можно отдохнуть после целого дня на ногах.',
       tip: 'Садитесь на F или Q — обе идут до W 4th St. Вагоны с кондиционером. Можно использовать время, чтобы забронировать Village Vanguard, если ещё не сделали.',
-      image: 'lower-east-side.webp',
+      image: 'lower-east-side-street.webp',
       price: '$2.90',
       pos: { lat: 40.7322, lng: -74.0003 },
     },
