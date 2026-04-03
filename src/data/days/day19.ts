@@ -175,6 +175,21 @@ const day19: DayConfig = {
       price: 'TBD',
       pos: { lat: 33.9425, lng: -118.4081 },
     },
+    {
+      id: 'innout-lax-spotting',
+      type: 'food',
+      num: '📸',
+      title: 'In-N-Out Burger (LAX Spotting)',
+      time: '~21:00',
+      desc: 'Легендарная точка — бургер под самолётами, садящимися в 30 метрах над головой.',
+      why: 'Лучший финальный кадр поездки. Самолёты каждые 90 секунд.',
+      tip: 'Sepulveda Blvd у LAX. Патио с видом на полосу. Берите Double-Double.',
+      photoTip: 'Серийная съёмка — поймайте самолёт прямо над бургером в руке.',
+      image: 'in-n-out.webp',
+      price: '$10-15',
+      pos: { lat: 33.9729, lng: -118.3928 },
+    }
+  
   ],
   routes: [
     { from: 0, to: 1, mode: 'taxi' },

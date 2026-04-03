@@ -146,6 +146,36 @@ const day9: DayConfig = {
       price: '$55–75',
       pos: { lat: 36.056, lng: -112.12 },
     },
+    {
+      id: 'desert-view-tower',
+      type: 'gold',
+      num: '📸',
+      title: 'Desert View Watchtower',
+      time: '~12:00',
+      desc: '70-футовая каменная башня в стиле пуэбло на краю каньона — 1932 год.',
+      why: 'Первая точка при въезде из Page. Расписные стены внутри + вид через окна = машина времени.',
+      tip: 'Поднимитесь внутрь башни — маленькие окна кадрируют каньон как картину.',
+      photoTip: 'Башня как графичный foreground, каньон на фоне — не только сам каньон.',
+      image: 'desert-view.webp',
+      price: 'бесплатно (вход в парк $35)',
+      pos: { lat: 36.044, lng: -111.8265 },
+    },
+    {
+      id: 'yaki-point',
+      type: 'nature',
+      num: '📸',
+      title: 'Yaki Point',
+      time: '~17:30',
+      desc: 'Одна из лучших смотровых — доступна только на шаттле, поэтому мало людей.',
+      why: 'Шаттл отсекает 80% туристов. Лучшие тени в каньоне на закате.',
+      tip: 'Orange Route шаттл. Рядом — начало South Kaibab Trail.',
+      photoTip: '35-70mm, глубина каньона без сверхширокоугольника.',
+      image: 'grand-canyon-sunrise.webp',
+      price: 'бесплатно',
+      pos: { lat: 36.0583, lng: -112.0839 },
+    }
+  
+  
   ],
   routes: [
     { from: 0, to: 1, mode: 'walking' },

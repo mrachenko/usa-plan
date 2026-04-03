@@ -150,6 +150,21 @@ const day8: DayConfig = {
       price: 'бесплатно',
       pos: { lat: 36.0587, lng: -112.1076 },
     },
+    {
+      id: 'wahweap-overlook',
+      type: 'nature',
+      num: '📸',
+      title: 'Wahweap Overlook',
+      time: '~18:30',
+      desc: 'Бесплатный вид на Lake Powell — красный песчаник контрастирует с бирюзовой водой.',
+      why: 'Лучший вид на озеро без лодки. 5 минут от шоссе, идеально на закат.',
+      tip: 'После Антилопы и Подковы — расслабленное завершение дня с видом.',
+      photoTip: 'Длинный объектив сжимает слои пустыни и Lake Powell.',
+      image: 'horseshoe-bend.webp',
+      price: 'бесплатно',
+      pos: { lat: 36.9986, lng: -111.4888 },
+    }
+  
   ],
   routes: [
     { from: 0, to: 1, mode: 'driving' },

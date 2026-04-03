@@ -137,6 +137,36 @@ const day15: DayConfig = {
       price: '$300–400',
       pos: { lat: 20.9296, lng: -156.3520 },
     },
+    {
+      id: 'kalahaku-overlook',
+      type: 'nature',
+      num: '📸',
+      title: 'Kalahaku Overlook',
+      time: '~07:00',
+      desc: 'Смотровая на спуске с Haleakala — вид на кратер лучше, чем с вершины.',
+      why: 'После основной sunrise-съёмки, по пути вниз. Здесь видны серебристые мечи (silversword).',
+      tip: 'Не проезжайте мимо! Все стоят на вершине, а лучший вид здесь.',
+      photoTip: 'Кратер + серебристые мечи на переднем плане, облака внизу.',
+      image: 'haleakala-clouds.webp',
+      price: 'вход в парк $30',
+      pos: { lat: 20.7458, lng: -156.223 },
+    },
+    {
+      id: 'keanae-peninsula',
+      type: 'nature',
+      num: '📸',
+      title: "Ke'anae Peninsula",
+      time: '~12:00',
+      desc: 'Лавовый полуостров — чёрная лава, белые волны, зелёные поля таро и церковь.',
+      why: 'Самый драматичный берег на Road to Hana. Многослойная композиция в одном месте.',
+      tip: 'Съезд с Hana Highway на миле 16.5. Деревенский магазин внизу с банановым хлебом.',
+      photoTip: 'С верхней смотровой — геометрия полуострова и лоскутные поля таро.',
+      image: 'hana-highway-start.webp',
+      price: 'бесплатно',
+      pos: { lat: 20.8613, lng: -156.1467 },
+    }
+  
+  
   ],
   routes: [
     { from: 0, to: 1, mode: 'walking' },

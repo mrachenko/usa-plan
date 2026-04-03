@@ -147,6 +147,21 @@ const day10: DayConfig = {
       price: '$140–180',
       pos: { lat: 33.9875, lng: -118.4645 },
     },
+    {
+      id: 'hackberry-general',
+      type: 'gold',
+      num: '📸',
+      title: 'Hackberry General Store',
+      time: '~10:00',
+      desc: 'Легендарный магазин Route 66 — красный Corvette 1957, старые бензоколонки, ретро-вывески.',
+      why: 'Лучшая Route 66 фотозона после Seligman. Аутентичная атмосфера 50-х.',
+      tip: 'Стоит прямо на дороге, 20-30 мин на фото и сувениры.',
+      photoTip: 'Шире — чтобы ретро-вывески и машины перед фасадом попали в кадр.',
+      image: 'seligman-route66.webp',
+      price: 'бесплатно',
+      pos: { lat: 35.371, lng: -113.7265 },
+    }
+  
   ],
   routes: [
     { from: 0, to: 1, mode: 'walking' },

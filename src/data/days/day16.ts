@@ -140,6 +140,21 @@ const day16: DayConfig = {
       price: '$120–160',
       pos: { lat: 20.8726, lng: -156.6780 },
     },
+    {
+      id: 'dragons-teeth',
+      type: 'nature',
+      num: '📸',
+      title: "Dragon's Teeth",
+      time: '~08:00',
+      desc: 'Лавовые зубцы, выточенные океаном — выглядят как зубы дракона.',
+      why: '10 минут от Kaanapali. Фантастический фэнтезийный пейзаж, мало туристов.',
+      tip: 'Makaluapuna Point рядом с Ritz-Carlton. Лёгкий хайк 15 мин.',
+      photoTip: 'Закатное небо за зубцами — фэнтезийный кадр.',
+      image: 'kaanapali-beach.webp',
+      price: 'бесплатно',
+      pos: { lat: 20.9981, lng: -156.6252 },
+    }
+  
   ],
   routes: [
     { from: 0, to: 1, mode: 'walking' },
