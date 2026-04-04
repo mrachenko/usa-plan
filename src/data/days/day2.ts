@@ -193,6 +193,8 @@ const day2: DayConfig = {
     },
   ],
   routes: [
+    { from: 0, to: 1, mode: 'walking' },
+    { from: 1, to: 2, mode: 'walking' },
     { from: 2, to: 3, mode: 'walking' },
     { from: 3, to: 4, mode: 'walking' },
     { from: 4, to: 5, mode: 'walking' },

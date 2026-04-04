@@ -155,7 +155,10 @@ const day11: DayConfig = {
     },
   ],
   routes: [
-    { from: 0, to: 4, mode: 'driving' },
+    { from: 0, to: 1, mode: 'driving' },
+    { from: 1, to: 2, mode: 'driving' },
+    { from: 2, to: 3, mode: 'driving' },
+    { from: 3, to: 4, mode: 'driving' },
     { from: 4, to: 5, mode: 'driving' },
     { from: 5, to: 6, mode: 'driving' },
     { from: 6, to: 7, mode: 'driving' },

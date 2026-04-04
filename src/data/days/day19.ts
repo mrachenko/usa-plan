@@ -200,7 +200,8 @@ const day19: DayConfig = {
     { from: 6, to: 7, mode: 'walking' },
     { from: 7, to: 8, mode: 'walking' },
     { from: 8, to: 9, mode: 'walking' },
-    { from: 9, to: 11, mode: 'taxi' },
+    { from: 9, to: 10, mode: 'taxi' },
+    { from: 10, to: 11, mode: 'taxi' },
     { from: 11, to: 12, mode: 'walking' },
   ],
   infoBlocks: [

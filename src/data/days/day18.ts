@@ -142,6 +142,7 @@ const day18: DayConfig = {
     { from: 4, to: 5, mode: 'flight' },
     { from: 5, to: 6, mode: 'taxi' },
     { from: 6, to: 7, mode: 'driving' },
+    { from: 7, to: 8, mode: 'driving' },
   ],
   infoBlocks: [
     {

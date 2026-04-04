@@ -216,8 +216,11 @@ const day6: DayConfig = {
     { from: 5, to: 6, mode: 'shuttle' },
     { from: 6, to: 7, mode: 'walking' },
     { from: 7, to: 8, mode: 'shuttle' },
-    { from: 8, to: 10, mode: 'walking' },
-    { from: 10, to: 13, mode: 'walking' },
+    { from: 8, to: 9, mode: 'walking' },
+    { from: 9, to: 10, mode: 'walking' },
+    { from: 10, to: 11, mode: 'walking' },
+    { from: 11, to: 12, mode: 'walking' },
+    { from: 12, to: 13, mode: 'walking' },
   ],
   infoBlocks: [
     {
