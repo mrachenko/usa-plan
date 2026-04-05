@@ -322,6 +322,24 @@ export default function Home() {
         </motion.div>
         <TripStats />
 
+        {/* New trip CTA */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          className="pt-16 pb-8 text-center"
+        >
+          <p className="text-muted-dark text-sm mb-4">Понравился формат?</p>
+          <a
+            href="https://t.me/mrachenko"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-2 px-6 py-3 bg-gold/10 border border-gold/20 rounded-full text-gold hover:bg-gold/20 transition-colors font-medium"
+          >
+            Новая поездка
+          </a>
+        </motion.div>
+
         {/* Footer with version */}
         <div className="h-32 flex items-end justify-center pb-6">
           <p className="text-[10px] text-muted-dark/40 tracking-wider">v3.0</p>
